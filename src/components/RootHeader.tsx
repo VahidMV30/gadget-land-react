@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 import logo from "../assets/vite.svg";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { AuthButton } from "./AuthButton";
 
-export const Header = () => {
+export const RootHeader = () => {
   return (
     <header className="mx-4 h-16 xl:mx-0">
       <div className="container mx-auto flex h-full max-w-[1280px] items-center justify-between border-b border-gray-300 dark:border-gray-700">
@@ -12,8 +13,9 @@ export const Header = () => {
           <h1 className="mt-1 font-semibold">گجت لند</h1>
         </Link>
 
-        <div>
+        <div className="flex items-center gap-2">
           <ThemeSwitcher />
+          <AuthButton />
         </div>
       </div>
     </header>
