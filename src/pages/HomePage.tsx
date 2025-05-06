@@ -1,14 +1,9 @@
-import { Link } from "react-router-dom";
+import useMetadata from "../hooks/useMetadata";
 
 const HomePage = () => {
-  return (
-    <div className="flex items-center gap-8">
-      <Link to="/auth/login">Login</Link>
-      <Link to="/auth/register">Register</Link>
-      <Link to="/dashboard">User Dashboard</Link>
-      <Link to="/admin/dashboard">Admin Dashboard</Link>
-    </div>
-  );
+  useMetadata("صفحه اصلی");
+
+  return <h1>Home Page!</h1>;
 };
 
 export default HomePage;

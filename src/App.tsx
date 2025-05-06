@@ -9,6 +9,7 @@ import { Spinner } from "./components/Spinner";
 import { ADMIN_ROLE, USER_ROLE } from "./constants";
 import useFetchUserProfileQuery from "./hooks/reactQuery/auth/queries/useFetchUserProfileQuery";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import CategoriesPage from "./pages/admin/categories/CategoriesPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
@@ -66,6 +67,7 @@ const App = () => {
         <Route element={<ProtectedRoute allowedRoles={ADMIN_ROLE} />}>
           <Route element={<AdminLayout />}>
             <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+            <Route path="/admin/categories" element={<CategoriesPage />} />
           </Route>
         </Route>
 

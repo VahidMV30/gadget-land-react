@@ -8,10 +8,12 @@ import { Divider } from "../../components/Divider";
 import { FormErrorMessage } from "../../components/FormErrorMessage";
 import { Spinner } from "../../components/Spinner";
 import useLoginMutation from "../../hooks/reactQuery/auth/mutations/useLoginMutation";
+import useMetadata from "../../hooks/useMetadata";
 import { loginSchema } from "../../schemas/authSchemas";
 import { LoginType } from "../../types/authTypes";
 
 const LoginPage = () => {
+  useMetadata("ورود");
   const { mutate, isPending } = useLoginMutation();
 
   const {

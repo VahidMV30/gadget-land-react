@@ -15,3 +15,7 @@ export const fetchUserProfileApi = async () => {
   const response = await axiosInstance.get("/auth/profile");
   return response.data;
 };
+
+export const logoutApi = async () => {
+  await axiosInstance.post("/auth/logout");
+};
