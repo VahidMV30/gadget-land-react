@@ -29,7 +29,7 @@ const RegisterPage = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="w-[30rem] rounded border border-gray-300 p-4 dark:border-gray-700">
-        <h4 className="rounded bg-sky-100 p-4 text-center dark:bg-sky-950">ثبت نام کاربری</h4>
+        <h4 className="rounded bg-gray-200 p-4 text-center dark:bg-gray-800">ثبت نام کاربری</h4>
 
         <Divider />
 
@@ -50,7 +50,7 @@ const RegisterPage = () => {
               />
               <LuUser size={17} className="absolute top-1/2 right-3 -translate-y-1/2 transform text-gray-500" />
             </div>
-            <FormErrorMessage error={errors.fullName} />
+            <FormErrorMessage error={errors.fullName} className="text-[12px]" />
           </div>
 
           <div className="flex flex-col gap-1">
@@ -69,7 +69,7 @@ const RegisterPage = () => {
               />
               <LuMail size={17} className="absolute top-1/2 right-3 -translate-y-1/2 transform text-gray-500" />
             </div>
-            <FormErrorMessage error={errors.email} />
+            <FormErrorMessage error={errors.email} className="text-[12px]" />
           </div>
 
           <div className="flex flex-col gap-1">
@@ -88,7 +88,7 @@ const RegisterPage = () => {
               />
               <LuKey size={17} className="absolute top-1/2 right-3 -translate-y-1/2 transform text-gray-500" />
             </div>
-            <FormErrorMessage error={errors.password} />
+            <FormErrorMessage error={errors.password} className="text-[12px]" />
           </div>
 
           <div className="flex flex-col gap-1">
@@ -107,14 +107,14 @@ const RegisterPage = () => {
               />
               <LuKey size={17} className="absolute top-1/2 right-3 -translate-y-1/2 transform text-gray-500" />
             </div>
-            <FormErrorMessage error={errors.confirmPassword} />
+            <FormErrorMessage error={errors.confirmPassword} className="text-[12px]" />
           </div>
 
           <button
             className={classnames({
-              "flex items-center justify-center gap-1.5 rounded border border-teal-300 bg-teal-500/25": true,
-              "p-2 hover:cursor-pointer hover:bg-teal-500/30 dark:border-teal-700": true,
-              "disabled:cursor-default disabled:hover:bg-teal-500/25": true,
+              "flex items-center justify-center gap-1.5 rounded border border-sky-300 bg-sky-500/25": true,
+              "p-2 hover:cursor-pointer hover:bg-sky-500/30 dark:border-sky-700": true,
+              "disabled:cursor-default disabled:hover:bg-sky-500/25": true,
             })}
             disabled={isPending}
           >

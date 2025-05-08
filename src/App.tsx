@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
+import { AdminHeader } from "./components/admin/AdminHeader";
 import { AdminLayout } from "./components/admin/AdminLayout";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { RootHeader } from "./components/RootHeader";
@@ -10,6 +11,8 @@ import { ADMIN_ROLE, USER_ROLE } from "./constants";
 import useFetchUserProfileQuery from "./hooks/reactQuery/auth/queries/useFetchUserProfileQuery";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import CategoriesPage from "./pages/admin/categories/CategoriesPage";
+import CreateCategoryPage from "./pages/admin/categories/CreateCategoryPage";
+import UpdateCategoryPage from "./pages/admin/categories/UpdateCategoryPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
@@ -37,16 +40,20 @@ const App = () => {
           <>
             <RootHeader />
             <main className="container mx-auto my-4 max-w-[1280px] px-4 xl:px-0">
-              <div className="flex items-center justify-center">
+              <div className="flex flex-col items-center justify-center gap-2">
                 <Spinner size={25} />
+                <span>در حال بارگذاری ...</span>
               </div>
             </main>
           </>
         ) : (
           <>
-            <AdminLayout />
+            <AdminHeader />
             <main className="container mx-auto my-4 max-w-[1280px] px-4 xl:px-0">
-              <Spinner />
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Spinner size={25} />
+                <span>در حال بارگذاری ...</span>
+              </div>
             </main>
           </>
         )}
@@ -68,6 +75,8 @@ const App = () => {
           <Route element={<AdminLayout />}>
             <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
             <Route path="/admin/categories" element={<CategoriesPage />} />
+            <Route path="/admin/categories/create" element={<CreateCategoryPage />} />
+            <Route path="/admin/categories/update/:id" element={<UpdateCategoryPage />} />
           </Route>
         </Route>
 

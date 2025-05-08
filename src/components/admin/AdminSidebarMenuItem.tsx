@@ -25,8 +25,7 @@ export const AdminSidebarMenuItem = ({ href, icon, title }: Props) => {
     <button
       className={classnames({
         "flex w-full items-center gap-2 rounded border-r-6 bg-gray-100 p-2 dark:bg-gray-800": true,
-        "border-gray-300 hover:border-sky-500 hover:bg-sky-500/25 dark:border-gray-700": true,
-        "duration-100 hover:cursor-pointer": true,
+        "border-gray-300 hover:cursor-pointer hover:border-sky-500 hover:bg-sky-500/25 dark:border-gray-700": true,
         "border-teal-500 bg-teal-500/25 dark:border-teal-500 dark:bg-teal-500/25": location.pathname.startsWith(href),
       })}
       onClick={() => handleMenuItemClick(href)}

@@ -11,7 +11,7 @@ export const AdminLayout = () => {
         <div className="grid grid-cols-12 gap-4">
           <AdminSidebar />
 
-          <div className="col-span-12 rounded border border-gray-300 p-4 lg:col-span-9 dark:border-gray-700">
+          <div className="col-span-12 h-fit rounded border border-gray-300 p-4 lg:col-span-9 dark:border-gray-700">
             <Outlet />
           </div>
         </div>
