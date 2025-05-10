@@ -10,6 +10,9 @@ import { Spinner } from "./components/Spinner";
 import { ADMIN_ROLE, USER_ROLE } from "./constants";
 import useFetchUserProfileQuery from "./hooks/reactQuery/auth/queries/useFetchUserProfileQuery";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import BrandsPage from "./pages/admin/brands/BrandsPage";
+import CreateBrandPage from "./pages/admin/brands/CreateBrandPage";
+import UpdateBrandPage from "./pages/admin/brands/UpdateBrandPage";
 import CategoriesPage from "./pages/admin/categories/CategoriesPage";
 import CreateCategoryPage from "./pages/admin/categories/CreateCategoryPage";
 import UpdateCategoryPage from "./pages/admin/categories/UpdateCategoryPage";
@@ -77,6 +80,9 @@ const App = () => {
             <Route path="/admin/categories" element={<CategoriesPage />} />
             <Route path="/admin/categories/create" element={<CreateCategoryPage />} />
             <Route path="/admin/categories/update/:id" element={<UpdateCategoryPage />} />
+            <Route path="/admin/brands" element={<BrandsPage />} />
+            <Route path="/admin/brands/create" element={<CreateBrandPage />} />
+            <Route path="/admin/brands/update/:id" element={<UpdateBrandPage />} />
           </Route>
         </Route>
 

@@ -2,6 +2,7 @@ import classnames from "classnames";
 import { FaTags } from "react-icons/fa6";
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
+import { LuFactory } from "react-icons/lu";
 
 import { useAuthStore } from "../../store/useAuthStore";
 import { useGlobalStore } from "../../store/useGlobalStore";
@@ -47,6 +48,9 @@ export const AdminSidebar = () => {
           </li>
           <li>
             <AdminSidebarMenuItem href="/admin/categories" icon={FaTags} title="دسته بندی ها" />
+          </li>
+          <li>
+            <AdminSidebarMenuItem href="/admin/brands" icon={LuFactory} title="برند ها" />
           </li>
           <li>
             <SidebarLogoutButton />
