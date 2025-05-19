@@ -9,11 +9,14 @@ import { LuImagePlus, LuTrash } from "react-icons/lu";
 import { FormErrorMessage } from "../../../components/FormErrorMessage";
 import { Spinner } from "../../../components/Spinner";
 import useCreateBrandMutation from "../../../hooks/reactQuery/brands/mutations/useCreateBrandMutation";
+import useMetadata from "../../../hooks/useMetadata";
 import { createBrandSchema } from "../../../schemas/brandSchemas";
 import { CreateBrandType } from "../../../types/brandTypes";
 import slugify from "../../../utils/slugify";
 
 const CreateBrandPage = () => {
+  useMetadata("ایجاد برند");
+
   const { mutate, isPending } = useCreateBrandMutation();
 
   const [image, setImage] = useState<{ file: File | null; previewUrl: string | null }>({
@@ -82,7 +85,7 @@ const CreateBrandPage = () => {
 
   return (
     <div className="grid grid-cols-12 gap-8">
-      <div className="order-2 col-span-12 md:col-span-6 lg:order-1">
+      <div className="order-2 col-span-12 md:order-1 md:col-span-6">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <div className="flex flex-col gap-1">
@@ -145,7 +148,7 @@ const CreateBrandPage = () => {
         </form>
       </div>
 
-      <div className="order-1 col-span-12 flex items-center justify-center md:col-span-6 lg:order-2">
+      <div className="order-1 col-span-12 flex items-center justify-center md:order-2 md:col-span-6">
         {image.previewUrl ? (
           <div className="relative h-60 w-60">
             <img src={image.previewUrl} />

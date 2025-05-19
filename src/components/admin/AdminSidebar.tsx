@@ -3,6 +3,7 @@ import { FaTags } from "react-icons/fa6";
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
 import { LuFactory } from "react-icons/lu";
+import { FaPallet } from "react-icons/fa";
 
 import { useAuthStore } from "../../store/useAuthStore";
 import { useGlobalStore } from "../../store/useGlobalStore";
@@ -26,7 +27,7 @@ export const AdminSidebar = () => {
         className={classnames({
           "fixed inset-0 -right-72 col-span-0 w-72 rounded-tl-xl rounded-bl-xl bg-white duration-200": true,
           "border-gray-300 lg:static lg:col-span-3 lg:w-full lg:rounded lg:border dark:border-gray-700": true,
-          "p-4 transition-[right] lg:h-fit dark:bg-gray-950": true,
+          "z-50 p-4 transition-[right] lg:h-fit dark:bg-gray-950": true,
           "right-0": isAdminSidebarOpen,
         })}
       >
@@ -51,6 +52,9 @@ export const AdminSidebar = () => {
           </li>
           <li>
             <AdminSidebarMenuItem href="/admin/brands" icon={LuFactory} title="برند ها" />
+          </li>
+          <li>
+            <AdminSidebarMenuItem href="/admin/products" icon={FaPallet} title="محصولات" />
           </li>
           <li>
             <SidebarLogoutButton />

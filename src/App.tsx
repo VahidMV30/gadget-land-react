@@ -16,6 +16,9 @@ import UpdateBrandPage from "./pages/admin/brands/UpdateBrandPage";
 import CategoriesPage from "./pages/admin/categories/CategoriesPage";
 import CreateCategoryPage from "./pages/admin/categories/CreateCategoryPage";
 import UpdateCategoryPage from "./pages/admin/categories/UpdateCategoryPage";
+import CreateProductPage from "./pages/admin/products/CreateProductPage";
+import ProductsPage from "./pages/admin/products/ProductsPage";
+import UpdateProductPage from "./pages/admin/products/UpdateProductPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
@@ -83,6 +86,9 @@ const App = () => {
             <Route path="/admin/brands" element={<BrandsPage />} />
             <Route path="/admin/brands/create" element={<CreateBrandPage />} />
             <Route path="/admin/brands/update/:id" element={<UpdateBrandPage />} />
+            <Route path="/admin/products" element={<ProductsPage />} />
+            <Route path="/admin/products/create" element={<CreateProductPage />} />
+            <Route path="/admin/products/update/:id" element={<UpdateProductPage />} />
           </Route>
         </Route>
 
