@@ -13,13 +13,14 @@ import classnames from "classnames";
 import { useState } from "react";
 import { FaPenClip, FaPlus } from "react-icons/fa6";
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { IoImages } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
+import { Spinner } from "../../../components/Spinner";
 import { IMAGE_URL } from "../../../constants";
 import useFetchProductsForAdminTableQuery from "../../../hooks/reactQuery/products/queries/useFetchProductsForAdminTableQuery";
 import useMetadata from "../../../hooks/useMetadata";
 import { ProductForAdminTableType } from "../../../types/productTypes";
-import { Spinner } from "../../../components/Spinner";
 
 const ProductsPage = () => {
   useMetadata("محصولات");
@@ -88,9 +89,14 @@ const ProductsPage = () => {
       id: "actions",
       header: "عملیات",
       cell: ({ row }) => (
-        <Link to={`/admin/products/update/${row.original.id}`} className="text-yellow-500 dark:text-yellow-300">
-          <FaPenClip size={17} />
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link to={`/admin/products/update/${row.original.id}`} className="text-yellow-500 dark:text-yellow-300">
+            <FaPenClip size={17} />
+          </Link>
+          <Link to={`/admin/products/${row.original.id}/modify-images`} className="text-pink-500 dark:text-pink-300">
+            <IoImages size={17} />
+          </Link>
+        </div>
       ),
     },
   ];

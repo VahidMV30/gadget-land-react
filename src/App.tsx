@@ -17,6 +17,7 @@ import CategoriesPage from "./pages/admin/categories/CategoriesPage";
 import CreateCategoryPage from "./pages/admin/categories/CreateCategoryPage";
 import UpdateCategoryPage from "./pages/admin/categories/UpdateCategoryPage";
 import CreateProductPage from "./pages/admin/products/CreateProductPage";
+import ModifyProductImagesPage from "./pages/admin/products/ModifyProductImagesPage";
 import ProductsPage from "./pages/admin/products/ProductsPage";
 import UpdateProductPage from "./pages/admin/products/UpdateProductPage";
 import LoginPage from "./pages/auth/LoginPage";
@@ -89,6 +90,7 @@ const App = () => {
             <Route path="/admin/products" element={<ProductsPage />} />
             <Route path="/admin/products/create" element={<CreateProductPage />} />
             <Route path="/admin/products/update/:id" element={<UpdateProductPage />} />
+            <Route path="/admin/products/:id/modify-images" element={<ModifyProductImagesPage />} />
           </Route>
         </Route>
 

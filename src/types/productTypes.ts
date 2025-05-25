@@ -28,6 +28,12 @@ export type ProductType = {
   description: string;
 };
 
+export type ProductWithImagesType = {
+  id: number;
+  name: string;
+  images: string[];
+};
+
 export type ProductsForAdminTableType = ProductForAdminTableType[];
 
 export type CreateProductType = z.infer<typeof createProductSchema>;
