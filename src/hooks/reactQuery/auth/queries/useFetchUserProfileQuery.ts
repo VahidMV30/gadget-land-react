@@ -3,12 +3,12 @@ import { useEffect } from "react";
 
 import { fetchUserProfileApi } from "../../../../api/authApi";
 import { useAuthStore } from "../../../../store/useAuthStore";
-import { UserType } from "../../../../types/authTypes";
+import { UserResponse } from "../../../../types/authTypes";
 
 const useFetchUserProfileQuery = () => {
   const { setUser, setIsAuthenticated, setIsAuthCheckComplete, setIsFetchingUserProfile } = useAuthStore();
 
-  const fetchUserProfile = useQuery<UserType, Error>({
+  const fetchUserProfile = useQuery<UserResponse, Error>({
     queryKey: ["fetchUserProfile"],
     queryFn: async () => {
       setIsAuthCheckComplete(false);

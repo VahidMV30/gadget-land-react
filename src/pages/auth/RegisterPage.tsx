@@ -9,7 +9,7 @@ import { FormErrorMessage } from "../../components/FormErrorMessage";
 import { Spinner } from "../../components/Spinner";
 import useRegisterMutation from "../../hooks/reactQuery/auth/mutations/useRegisterMutation";
 import { registerSchema } from "../../schemas/authSchemas";
-import { RegisterType } from "../../types/authTypes";
+import { RegisterRequest } from "../../types/authTypes";
 import useMetadata from "../../hooks/useMetadata";
 
 const RegisterPage = () => {
@@ -20,9 +20,9 @@ const RegisterPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterType>({ resolver: zodResolver(registerSchema) });
+  } = useForm<RegisterRequest>({ resolver: zodResolver(registerSchema) });
 
-  const onSubmit = (data: RegisterType) => {
+  const onSubmit = (data: RegisterRequest) => {
     mutate(data);
   };
 

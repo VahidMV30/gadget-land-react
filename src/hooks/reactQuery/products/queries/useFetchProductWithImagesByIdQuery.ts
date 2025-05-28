@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { ProductWithImagesType } from "../../../../types/productTypes";
+import { ProductWithImagesResponse } from "../../../../types/productTypes";
 import { fetchProductWithImagesByIdApi } from "../../../../api/productsApi";
 
 const useFetchProductWithImagesByIdQuery = (id: number) => {
-  const fetchProductWithImagesById = useQuery<ProductWithImagesType>({
+  const fetchProductWithImagesById = useQuery<ProductWithImagesResponse>({
     queryKey: ["fetchProductWithImagesById", id],
     queryFn: () => fetchProductWithImagesByIdApi(id),
   });

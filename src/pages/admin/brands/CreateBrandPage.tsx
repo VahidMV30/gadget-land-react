@@ -11,7 +11,7 @@ import { Spinner } from "../../../components/Spinner";
 import useCreateBrandMutation from "../../../hooks/reactQuery/brands/mutations/useCreateBrandMutation";
 import useMetadata from "../../../hooks/useMetadata";
 import { createBrandSchema } from "../../../schemas/brandSchemas";
-import { CreateBrandType } from "../../../types/brandTypes";
+import { CreateBrandRequest } from "../../../types/brandTypes";
 import slugify from "../../../utils/slugify";
 
 const CreateBrandPage = () => {
@@ -32,7 +32,7 @@ const CreateBrandPage = () => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<CreateBrandType>({ resolver: zodResolver(createBrandSchema) });
+  } = useForm<CreateBrandRequest>({ resolver: zodResolver(createBrandSchema) });
 
   const nameValue = watch("name");
 
@@ -72,7 +72,7 @@ const CreateBrandPage = () => {
     }
   };
 
-  const onSubmit = (data: CreateBrandType) => {
+  const onSubmit = (data: CreateBrandRequest) => {
     if (!image.file) return toast.error("انتخاب عکس برند الزامی است.");
 
     const formData = new FormData();

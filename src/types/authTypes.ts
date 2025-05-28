@@ -2,13 +2,13 @@ import { z } from "zod";
 
 import { registerSchema, loginSchema } from "../schemas/authSchemas";
 
-export type UserType = {
+export type UserResponse = {
   id: number;
   role: string;
   fullName: string;
   email: string;
 };
 
-export type RegisterType = z.infer<typeof registerSchema>;
+export type RegisterRequest = z.infer<typeof registerSchema>;
 
-export type LoginType = z.infer<typeof loginSchema>;
+export type LoginRequest = z.infer<typeof loginSchema>;

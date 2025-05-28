@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { loginApi } from "../../../../api/authApi";
 import { ADMIN_ROLE } from "../../../../constants";
 import { useAuthStore } from "../../../../store/useAuthStore";
-import { LoginType, UserType } from "../../../../types/authTypes";
+import { LoginRequest, UserResponse } from "../../../../types/authTypes";
 
 const useLoginMutation = () => {
   const { setUser, setIsAuthenticated } = useAuthStore();
   const navigate = useNavigate();
 
-  const login = useMutation<UserType, AxiosError<{ errors: { description: string }[] }>, LoginType>({
-    mutationFn: (data: LoginType) => loginApi(data),
+  const login = useMutation<UserResponse, AxiosError<{ errors: { description: string }[] }>, LoginRequest>({
+    mutationFn: (data: LoginRequest) => loginApi(data),
     onSuccess: (data) => {
       setUser(data);
       setIsAuthenticated(true);

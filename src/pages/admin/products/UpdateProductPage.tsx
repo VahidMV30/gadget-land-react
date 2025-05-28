@@ -19,7 +19,7 @@ import useUpdateProductMutation from "../../../hooks/reactQuery/products/mutatio
 import useFetchProductByIdQuery from "../../../hooks/reactQuery/products/queries/useFetchProductByIdQuery";
 import useMetadata from "../../../hooks/useMetadata";
 import { updateProductSchema } from "../../../schemas/productSchemas";
-import { UpdateProductType } from "../../../types/productTypes";
+import { UpdateProductRequest } from "../../../types/productTypes";
 import formatPrice from "../../../utils/formatPrice";
 import slugify from "../../../utils/slugify";
 
@@ -63,7 +63,7 @@ const UpdateProductPage = () => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<UpdateProductType>({ resolver: zodResolver(updateProductSchema) });
+  } = useForm<UpdateProductRequest>({ resolver: zodResolver(updateProductSchema) });
 
   useEffect(() => {
     if (data) {
@@ -119,7 +119,7 @@ const UpdateProductPage = () => {
     }
   };
 
-  const onSubmit = (data: UpdateProductType) => {
+  const onSubmit = (data: UpdateProductRequest) => {
     if (!selectedCategory) return toast.error("انتخاب دسته بندی الزامی است.");
     if (!selectedBrand) return toast.error("انتخاب برند الزامی است.");
 

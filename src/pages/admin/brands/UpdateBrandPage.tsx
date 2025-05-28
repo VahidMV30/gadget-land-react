@@ -14,7 +14,7 @@ import useUpdateBrandMutation from "../../../hooks/reactQuery/brands/mutations/u
 import useFetchBrandByIdQuery from "../../../hooks/reactQuery/brands/queries/useFetchBrandByIdQuery";
 import useMetadata from "../../../hooks/useMetadata";
 import { updateBrandSchema } from "../../../schemas/brandSchemas";
-import { UpdateBrandType } from "../../../types/brandTypes";
+import { UpdateBrandRequest } from "../../../types/brandTypes";
 import slugify from "../../../utils/slugify";
 
 const UpdateBrandPage = () => {
@@ -40,7 +40,7 @@ const UpdateBrandPage = () => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<UpdateBrandType>({ resolver: zodResolver(updateBrandSchema) });
+  } = useForm<UpdateBrandRequest>({ resolver: zodResolver(updateBrandSchema) });
 
   useEffect(() => {
     if (data) {
@@ -88,7 +88,7 @@ const UpdateBrandPage = () => {
     }
   };
 
-  const onSubmit = (data: UpdateBrandType) => {
+  const onSubmit = (data: UpdateBrandRequest) => {
     const formData = new FormData();
 
     formData.append("id", data.id.toString());

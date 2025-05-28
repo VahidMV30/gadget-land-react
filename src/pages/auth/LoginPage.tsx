@@ -10,7 +10,7 @@ import { Spinner } from "../../components/Spinner";
 import useLoginMutation from "../../hooks/reactQuery/auth/mutations/useLoginMutation";
 import useMetadata from "../../hooks/useMetadata";
 import { loginSchema } from "../../schemas/authSchemas";
-import { LoginType } from "../../types/authTypes";
+import { LoginRequest } from "../../types/authTypes";
 
 const LoginPage = () => {
   useMetadata("ورود");
@@ -20,9 +20,9 @@ const LoginPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginType>({ resolver: zodResolver(loginSchema) });
+  } = useForm<LoginRequest>({ resolver: zodResolver(loginSchema) });
 
-  const onSubmit = (data: LoginType) => {
+  const onSubmit = (data: LoginRequest) => {
     mutate(data);
   };
 

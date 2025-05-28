@@ -2,18 +2,7 @@ import { z } from "zod";
 
 import { createProductSchema, updateProductSchema } from "../schemas/productSchemas";
 
-export type ProductForAdminTableType = {
-  id: number;
-  categoryName: string;
-  brandName: string;
-  name: string;
-  image: string;
-  price: string;
-  discountPrice: string;
-  quantityInStock: number;
-};
-
-export type ProductType = {
+export type ProductResponse = {
   id: number;
   categoryId: number;
   categoryName: string;
@@ -28,14 +17,49 @@ export type ProductType = {
   description: string;
 };
 
-export type ProductWithImagesType = {
+export type ProductForAdminTableResponse = {
+  id: number;
+  categoryName: string;
+  brandName: string;
+  name: string;
+  image: string;
+  price: string;
+  discountPrice: string;
+  quantityInStock: number;
+};
+
+export type ProductWithImagesResponse = {
   id: number;
   name: string;
   images: string[];
 };
 
-export type ProductsForAdminTableType = ProductForAdminTableType[];
+export type ProductsWithFiltersResponse = {
+  name: string;
+  slug: string;
+  image: string;
+  price: string;
+  discountPrice?: string;
+  discountPercent?: number;
+};
 
-export type CreateProductType = z.infer<typeof createProductSchema>;
+export type PaginatedProductsWithFiltersResponse = {
+  totalCount: number;
+  totalPages: number;
+  products: ProductsWithFiltersResponse[];
+};
 
-export type UpdateProductType = z.infer<typeof updateProductSchema>;
+export type ProductSortOrderType = "latest" | "oldest" | "cheapest" | "expensive";
+
+export type ProductsWithFiltersRequest = {
+  categorySlug: string | null;
+  brandSlug: string | null;
+  onlyDiscounted: boolean;
+  sortOrder: ProductSortOrderType;
+  pageIndex: number;
+  pageSize?: number;
+};
+
+export type CreateProductRequest = z.infer<typeof createProductSchema>;
+
+export type UpdateProductRequest = z.infer<typeof updateProductSchema>;

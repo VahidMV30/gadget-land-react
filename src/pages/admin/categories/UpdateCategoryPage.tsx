@@ -13,7 +13,7 @@ import { IMAGE_URL } from "../../../constants";
 import useUpdateCategoryMutation from "../../../hooks/reactQuery/categories/mutations/useUpdateCategoryMutation";
 import useFetchCategoryByIdQuery from "../../../hooks/reactQuery/categories/queries/useFetchCategoryByIdQuery";
 import { updateCategorySchema } from "../../../schemas/categorySchemas";
-import { UpdateCategoryType } from "../../../types/categoryTypes";
+import { UpdateCategoryRequest } from "../../../types/categoryTypes";
 import slugify from "../../../utils/slugify";
 import useMetadata from "../../../hooks/useMetadata";
 
@@ -40,7 +40,7 @@ const UpdateCategoryPage = () => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<UpdateCategoryType>({ resolver: zodResolver(updateCategorySchema) });
+  } = useForm<UpdateCategoryRequest>({ resolver: zodResolver(updateCategorySchema) });
 
   useEffect(() => {
     if (data) {
@@ -88,7 +88,7 @@ const UpdateCategoryPage = () => {
     }
   };
 
-  const onSubmit = (data: UpdateCategoryType) => {
+  const onSubmit = (data: UpdateCategoryRequest) => {
     const formData = new FormData();
 
     formData.append("id", data.id.toString());

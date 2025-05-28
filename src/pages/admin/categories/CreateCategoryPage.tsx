@@ -11,7 +11,7 @@ import { Spinner } from "../../../components/Spinner";
 import useCreateCategoryMutation from "../../../hooks/reactQuery/categories/mutations/useCreateCategoryMutation";
 import useMetadata from "../../../hooks/useMetadata";
 import { createCategorySchema } from "../../../schemas/categorySchemas";
-import { CreateCategoryType } from "../../../types/categoryTypes";
+import { CreateCategoryRequest } from "../../../types/categoryTypes";
 import slugify from "../../../utils/slugify";
 
 const CreateCategoryPage = () => {
@@ -31,7 +31,7 @@ const CreateCategoryPage = () => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<CreateCategoryType>({ resolver: zodResolver(createCategorySchema) });
+  } = useForm<CreateCategoryRequest>({ resolver: zodResolver(createCategorySchema) });
 
   const nameValue = watch("name");
 
@@ -71,7 +71,7 @@ const CreateCategoryPage = () => {
     }
   };
 
-  const onSubmit = (data: CreateCategoryType) => {
+  const onSubmit = (data: CreateCategoryRequest) => {
     if (!image.file) return toast.error("انتخاب عکس دسته بندی الزامی است.");
 
     const formData = new FormData();

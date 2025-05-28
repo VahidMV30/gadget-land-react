@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchAllBrandsApi } from "../../../../api/brandsApi";
-import { BrandsType } from "../../../../types/brandTypes";
+import { BrandResponse } from "../../../../types/brandTypes";
 
 const useFetchAllBrandsQuery = () => {
-  const fetchAllBrands = useQuery<BrandsType>({
+  const fetchAllBrands = useQuery<BrandResponse[]>({
     queryKey: ["fetchAllBrands"],
     queryFn: fetchAllBrandsApi,
   });

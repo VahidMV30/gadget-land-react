@@ -4,12 +4,12 @@ import { useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 
 import { Spinner } from "../../Spinner";
-import { CategoriesType } from "../../../types/categoryTypes";
+import { CategoryResponse } from "../../../types/categoryTypes";
 
 interface Props {
   title: string;
   initialSelectedItem?: { id: number; name: string };
-  data: CategoriesType;
+  data: CategoryResponse[];
   isLoading: boolean;
   isError: boolean;
   error: Error | null;

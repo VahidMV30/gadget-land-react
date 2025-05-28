@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
-import { UserType } from "../types/authTypes";
+import { UserResponse } from "../types/authTypes";
 
 interface AuthState {
-  user: UserType | null;
+  user: UserResponse | null;
   isAuthenticated: boolean;
   isAuthCheckComplete: boolean;
   isFetchingUserProfile: boolean;
-  setUser: (data: UserType | null) => void;
+  setUser: (data: UserResponse | null) => void;
   setIsAuthenticated: (value: boolean) => void;
   setIsAuthCheckComplete: (value: boolean) => void;
   setIsFetchingUserProfile: (value: boolean) => void;

@@ -19,7 +19,7 @@ import { Spinner } from "../../../components/Spinner";
 import { IMAGE_URL } from "../../../constants";
 import useFetchAllCategoriesQuery from "../../../hooks/reactQuery/categories/queries/useFetchAllCategoriesQuery";
 import useMetadata from "../../../hooks/useMetadata";
-import { CategoryType } from "../../../types/categoryTypes";
+import { CategoryResponse } from "../../../types/categoryTypes";
 
 const CategoriesPage = () => {
   useMetadata("دسته بندی ها");
@@ -31,7 +31,7 @@ const CategoriesPage = () => {
     pageSize: 10,
   });
 
-  const columns: ColumnDef<CategoryType>[] = [
+  const columns: ColumnDef<CategoryResponse>[] = [
     {
       accessorKey: "id",
       header: "#",

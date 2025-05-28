@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchAllCategoriesApi } from "../../../../api/categoriesApi";
-import { CategoryType } from "../../../../types/categoryTypes";
+import { CategoryResponse } from "../../../../types/categoryTypes";
 
 const useFetchAllCategoriesQuery = () => {
-  const fetchAllCategories = useQuery<CategoryType[]>({
+  const fetchAllCategories = useQuery<CategoryResponse[]>({
     queryKey: ["fetchAllCategories"],
     queryFn: fetchAllCategoriesApi,
   });

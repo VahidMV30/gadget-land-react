@@ -19,7 +19,7 @@ import { Spinner } from "../../../components/Spinner";
 import { IMAGE_URL } from "../../../constants";
 import useFetchAllBrandsQuery from "../../../hooks/reactQuery/brands/queries/useFetchAllBrandsQuery";
 import useMetadata from "../../../hooks/useMetadata";
-import { BrandType } from "../../../types/brandTypes";
+import { BrandResponse } from "../../../types/brandTypes";
 
 const BrandsPage = () => {
   useMetadata("برند ها");
@@ -31,7 +31,7 @@ const BrandsPage = () => {
     pageSize: 10,
   });
 
-  const columns: ColumnDef<BrandType>[] = [
+  const columns: ColumnDef<BrandResponse>[] = [
     {
       accessorKey: "id",
       header: "#",

@@ -16,14 +16,15 @@ import UpdateBrandPage from "./pages/admin/brands/UpdateBrandPage";
 import CategoriesPage from "./pages/admin/categories/CategoriesPage";
 import CreateCategoryPage from "./pages/admin/categories/CreateCategoryPage";
 import UpdateCategoryPage from "./pages/admin/categories/UpdateCategoryPage";
+import AdminProductsPage from "./pages/admin/products/AdminProductsPage";
 import CreateProductPage from "./pages/admin/products/CreateProductPage";
 import ModifyProductImagesPage from "./pages/admin/products/ModifyProductImagesPage";
-import ProductsPage from "./pages/admin/products/ProductsPage";
 import UpdateProductPage from "./pages/admin/products/UpdateProductPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
 import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
 import { useAuthStore } from "./store/useAuthStore";
 
@@ -76,6 +77,7 @@ const App = () => {
           <Route path="/forbidden" element={<ForbiddenPage />} />
           <Route path="/auth/register" element={!isAuthenticated ? <RegisterPage /> : <Navigate to="/" replace />} />
           <Route path="/auth/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" replace />} />
+          <Route path="/products" element={<ProductsPage />} />
         </Route>
 
         <Route element={<ProtectedRoute allowedRoles={ADMIN_ROLE} />}>
@@ -87,7 +89,7 @@ const App = () => {
             <Route path="/admin/brands" element={<BrandsPage />} />
             <Route path="/admin/brands/create" element={<CreateBrandPage />} />
             <Route path="/admin/brands/update/:id" element={<UpdateBrandPage />} />
-            <Route path="/admin/products" element={<ProductsPage />} />
+            <Route path="/admin/products" element={<AdminProductsPage />} />
             <Route path="/admin/products/create" element={<CreateProductPage />} />
             <Route path="/admin/products/update/:id" element={<UpdateProductPage />} />
             <Route path="/admin/products/:id/modify-images" element={<ModifyProductImagesPage />} />

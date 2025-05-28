@@ -2,15 +2,13 @@ import { z } from "zod";
 
 import { createCategorySchema, updateCategorySchema } from "../schemas/categorySchemas";
 
-export type CategoryType = {
+export type CategoryResponse = {
   id: number;
   name: string;
   slug: string;
   image: string;
 };
 
-export type CategoriesType = CategoryType[];
+export type CreateCategoryRequest = z.infer<typeof createCategorySchema>;
 
-export type CreateCategoryType = z.infer<typeof createCategorySchema>;
-
-export type UpdateCategoryType = z.infer<typeof updateCategorySchema>;
+export type UpdateCategoryRequest = z.infer<typeof updateCategorySchema>;

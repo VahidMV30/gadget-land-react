@@ -20,9 +20,9 @@ import { Spinner } from "../../../components/Spinner";
 import { IMAGE_URL } from "../../../constants";
 import useFetchProductsForAdminTableQuery from "../../../hooks/reactQuery/products/queries/useFetchProductsForAdminTableQuery";
 import useMetadata from "../../../hooks/useMetadata";
-import { ProductForAdminTableType } from "../../../types/productTypes";
+import { ProductForAdminTableResponse } from "../../../types/productTypes";
 
-const ProductsPage = () => {
+const AdminProductsPage = () => {
   useMetadata("محصولات");
   const { data, isLoading, isError, error } = useFetchProductsForAdminTableQuery();
   const [globalFilter, setGlobalFilter] = useState("");
@@ -32,7 +32,7 @@ const ProductsPage = () => {
     pageSize: 10,
   });
 
-  const columns: ColumnDef<ProductForAdminTableType>[] = [
+  const columns: ColumnDef<ProductForAdminTableResponse>[] = [
     {
       accessorKey: "id",
       header: "#",
@@ -284,4 +284,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage;
+export default AdminProductsPage;

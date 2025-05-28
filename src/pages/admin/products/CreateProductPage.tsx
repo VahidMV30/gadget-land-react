@@ -14,7 +14,7 @@ import useFetchAllCategoriesQuery from "../../../hooks/reactQuery/categories/que
 import useCreateProductMutation from "../../../hooks/reactQuery/products/mutations/useCreateProductMutation";
 import useMetadata from "../../../hooks/useMetadata";
 import { createProductSchema } from "../../../schemas/productSchemas";
-import { CreateProductType } from "../../../types/productTypes";
+import { CreateProductRequest } from "../../../types/productTypes";
 import slugify from "../../../utils/slugify";
 import formatPrice from "../../../utils/formatPrice";
 import { Divider } from "../../../components/Divider";
@@ -53,7 +53,7 @@ const CreateProductPage = () => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<CreateProductType>({ resolver: zodResolver(createProductSchema) });
+  } = useForm<CreateProductRequest>({ resolver: zodResolver(createProductSchema) });
 
   const nameValue = watch("name");
   const hasTyped = useRef(false);
@@ -92,7 +92,7 @@ const CreateProductPage = () => {
     }
   };
 
-  const onSubmit = (data: CreateProductType) => {
+  const onSubmit = (data: CreateProductRequest) => {
     if (!selectedCategory) return toast.error("انتخاب دسته بندی الزامی است.");
     if (!selectedBrand) return toast.error("انتخاب برند الزامی است.");
 
