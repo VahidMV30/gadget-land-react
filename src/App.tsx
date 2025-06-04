@@ -24,6 +24,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
 import HomePage from "./pages/HomePage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
 import { useAuthStore } from "./store/useAuthStore";
@@ -78,6 +79,7 @@ const App = () => {
           <Route path="/auth/register" element={!isAuthenticated ? <RegisterPage /> : <Navigate to="/" replace />} />
           <Route path="/auth/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" replace />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:slug" element={<ProductDetailsPage />} />
         </Route>
 
         <Route element={<ProtectedRoute allowedRoles={ADMIN_ROLE} />}>

@@ -3,16 +3,19 @@ import classnames from "classnames";
 import { LuFilter } from "react-icons/lu";
 
 import { Divider } from "../components/Divider";
+import { PaginationButtons } from "../components/ProductsWithFilters/PaginationButtons";
 import { ProductCard } from "../components/ProductsWithFilters/ProductCard";
 import { ProductsFiltersSidebar } from "../components/ProductsWithFilters/ProductsFiltersSidebar";
+import { SortOrderSelector } from "../components/ProductsWithFilters/SortOrderSelector";
 import { Spinner } from "../components/Spinner";
 import useFetchProductsWithFiltersQuery from "../hooks/reactQuery/products/queries/useFetchProductsWithFiltersQuery";
+import useMetadata from "../hooks/useMetadata";
 import { useGlobalStore } from "../store/useGlobalStore";
 import { useProductsWithFiltersStore } from "../store/useProductsWithFiltersStore";
-import { PaginationButtons } from "../components/ProductsWithFilters/PaginationButtons";
-import { SortOrderSelector } from "../components/ProductsWithFilters/SortOrderSelector";
 
 const ProductsPage = () => {
+  useMetadata("محصولات");
+
   const { setIsProductsFilterSidebarOpen } = useGlobalStore();
   const { selectedCategorySlug, selectedBrandSlug, isOnlyDiscounted, sortOrder, pageIndex } =
     useProductsWithFiltersStore();

@@ -30,6 +30,11 @@ export const fetchProductsWithFiltersApi = async (data: ProductsWithFiltersReque
   return response.data;
 };
 
+export const fetchProductDetailsBySlugApi = async (slug: string) => {
+  const response = await axiosInstance.get(`/products/product-details/${slug}`);
+  return response.data;
+};
+
 export const createProductApi = async (data: FormData) => {
   const response = await axiosInstance.post("/products", data);
   return response.data;

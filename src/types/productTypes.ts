@@ -60,6 +60,32 @@ export type ProductsWithFiltersRequest = {
   pageSize?: number;
 };
 
+export type ProductDetailsReviewResponse = {
+  fullName: string;
+  rating: number;
+  comment: string;
+  createdAt: string;
+};
+
+export type ProductDetailsResponse = {
+  id: number;
+  categoryName: string;
+  categorySlug: string;
+  brandName: string;
+  brandSlug: string;
+  name: string;
+  image: string;
+  price: string;
+  discountPrice: string;
+  discountPercent?: number;
+  quantityInStock: number;
+  description: string;
+  averageRating: number;
+  totalReviewsCount: number;
+  productImages: string[];
+  reviews: ProductDetailsReviewResponse[];
+};
+
 export type CreateProductRequest = z.infer<typeof createProductSchema>;
 
 export type UpdateProductRequest = z.infer<typeof updateProductSchema>;
