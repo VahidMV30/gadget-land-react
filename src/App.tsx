@@ -20,6 +20,7 @@ import AdminProductsPage from "./pages/admin/products/AdminProductsPage";
 import CreateProductPage from "./pages/admin/products/CreateProductPage";
 import ModifyProductImagesPage from "./pages/admin/products/ModifyProductImagesPage";
 import UpdateProductPage from "./pages/admin/products/UpdateProductPage";
+import ReviewsPage from "./pages/admin/reviews/ReviewsPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
@@ -28,6 +29,7 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
 import { useAuthStore } from "./store/useAuthStore";
+import ReviewDetailsPage from "./pages/admin/reviews/ReviewDetailsPage";
 
 const App = () => {
   useFetchUserProfileQuery();
@@ -95,6 +97,8 @@ const App = () => {
             <Route path="/admin/products/create" element={<CreateProductPage />} />
             <Route path="/admin/products/update/:id" element={<UpdateProductPage />} />
             <Route path="/admin/products/:id/modify-images" element={<ModifyProductImagesPage />} />
+            <Route path="/admin/reviews" element={<ReviewsPage />} />
+            <Route path="/admin/reviews/:id" element={<ReviewDetailsPage />} />
           </Route>
         </Route>
 

@@ -1,15 +1,15 @@
 import classnames from "classnames";
-import { FaTags } from "react-icons/fa6";
+import { FaPallet } from "react-icons/fa";
+import { FaComments, FaTags } from "react-icons/fa6";
+import { LuFactory } from "react-icons/lu";
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
-import { LuFactory } from "react-icons/lu";
-import { FaPallet } from "react-icons/fa";
 
 import { useAuthStore } from "../../store/useAuthStore";
 import { useGlobalStore } from "../../store/useGlobalStore";
 import { Divider } from "../Divider";
-import { AdminSidebarMenuItem } from "./AdminSidebarMenuItem";
 import { SidebarLogoutButton } from "../SidebarLogoutButton";
+import { AdminSidebarMenuItem } from "./AdminSidebarMenuItem";
 
 export const AdminSidebar = () => {
   const { isAdminSidebarOpen, setIsAdminSidebarOpen } = useGlobalStore();
@@ -55,6 +55,9 @@ export const AdminSidebar = () => {
           </li>
           <li>
             <AdminSidebarMenuItem href="/admin/products" icon={FaPallet} title="محصولات" />
+          </li>
+          <li>
+            <AdminSidebarMenuItem href="/admin/reviews" icon={FaComments} title="دیدگاه ها" />
           </li>
           <li>
             <SidebarLogoutButton />
