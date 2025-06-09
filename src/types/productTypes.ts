@@ -86,6 +86,18 @@ export type ProductDetailsResponse = {
   reviews: ProductDetailsReviewResponse[];
 };
 
+export type CartProductResponse = {
+  id: number;
+  name: string;
+  slug: string;
+  image: string;
+  price: number;
+  stringPrice: string;
+  discountPrice?: number;
+  stringDiscountPrice: string;
+  quantityInStock: number;
+};
+
 export type CreateProductRequest = z.infer<typeof createProductSchema>;
 
 export type UpdateProductRequest = z.infer<typeof updateProductSchema>;

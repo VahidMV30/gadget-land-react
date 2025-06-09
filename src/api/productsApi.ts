@@ -49,3 +49,8 @@ export const modifyProductImagesApi = async (data: FormData) => {
   const response = await axiosInstance.post("/products/modify-product-images", data);
   return response.data;
 };
+
+export const fetchCartProductsByIdsApi = async (ids: number[]) => {
+  const response = await axiosInstance.post(`/products/cart-products`, ids);
+  return response.data;
+};

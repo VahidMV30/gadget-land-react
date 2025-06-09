@@ -7,6 +7,7 @@ const useFetchProductDetailsBySlugQuery = (slug: string) => {
   const fetchProductDetailsBySlug = useQuery<ProductDetailsResponse>({
     queryKey: ["fetchProductDetailsBySlug", slug],
     queryFn: () => fetchProductDetailsBySlugApi(slug),
+    refetchInterval: 5000,
   });
 
   return fetchProductDetailsBySlug;

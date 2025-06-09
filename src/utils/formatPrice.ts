@@ -10,4 +10,8 @@ const formatPrice = (value: string) => {
   return onlyNumbers.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 };
 
+export const parsePriceToString = (originalPrice: number): string => {
+  return originalPrice.toLocaleString("en-US").replace(/,/g, ".");
+};
+
 export default formatPrice;

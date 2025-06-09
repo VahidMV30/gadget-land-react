@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/vite.svg";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { AuthButton } from "./AuthButton";
+import { CartButton } from "./CartButton";
 
 export const RootHeader = () => {
   return (
@@ -14,6 +15,7 @@ export const RootHeader = () => {
         </Link>
 
         <div className="flex items-center gap-2">
+          <CartButton />
           <ThemeSwitcher />
           <AuthButton />
         </div>

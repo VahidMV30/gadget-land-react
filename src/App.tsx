@@ -20,16 +20,18 @@ import AdminProductsPage from "./pages/admin/products/AdminProductsPage";
 import CreateProductPage from "./pages/admin/products/CreateProductPage";
 import ModifyProductImagesPage from "./pages/admin/products/ModifyProductImagesPage";
 import UpdateProductPage from "./pages/admin/products/UpdateProductPage";
+import ReviewDetailsPage from "./pages/admin/reviews/ReviewDetailsPage";
 import ReviewsPage from "./pages/admin/reviews/ReviewsPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
 import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
 import { useAuthStore } from "./store/useAuthStore";
-import ReviewDetailsPage from "./pages/admin/reviews/ReviewDetailsPage";
 
 const App = () => {
   useFetchUserProfileQuery();
@@ -82,6 +84,7 @@ const App = () => {
           <Route path="/auth/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" replace />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:slug" element={<ProductDetailsPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Route>
 
         <Route element={<ProtectedRoute allowedRoles={ADMIN_ROLE} />}>
@@ -105,6 +108,7 @@ const App = () => {
         <Route element={<ProtectedRoute allowedRoles={USER_ROLE} />}>
           <Route element={<RootLayout />}>
             <Route path="/dashboard" element={<UserDashboardPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Route>
         </Route>
       </Routes>

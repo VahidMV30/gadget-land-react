@@ -1,25 +1,20 @@
 import axios from "axios";
-import classnames from "classnames";
-import { useState } from "react";
-import toast from "react-hot-toast";
-import { FaCartPlus, FaPlus, FaXmark } from "react-icons/fa6";
-import { LuMinus } from "react-icons/lu";
 import { Link, useParams } from "react-router-dom";
 
 import { Divider } from "../components/Divider";
+import { AddToCartButton } from "../components/ProductDetails/AddToCartButton";
 import { ProductImages } from "../components/ProductDetails/ProductImages";
+import { ProductRating } from "../components/ProductDetails/ProductRating";
+import { ProductReviews } from "../components/ProductDetails/ProductReviews";
+import { ReviewForm } from "../components/ProductDetails/ReviewForm";
 import { Spinner } from "../components/Spinner";
 import useFetchProductDetailsBySlugQuery from "../hooks/reactQuery/products/queries/useFetchProductDetailsBySlugQuery";
 import useMetadata from "../hooks/useMetadata";
-import { ProductReviews } from "../components/ProductDetails/ProductReviews";
-import { ProductRating } from "../components/ProductDetails/ProductRating";
-import { ReviewForm } from "../components/ProductDetails/ReviewForm";
 
 const ProductDetailsPage = () => {
   useMetadata("جزئیات محصول");
   const { slug } = useParams();
   const { data, isLoading, isError, error } = useFetchProductDetailsBySlugQuery(slug! || "");
-  const [quantity, setQuantity] = useState(1);
 
   if (isLoading || !data) {
     return (
@@ -119,60 +114,7 @@ const ProductDetailsPage = () => {
             )}
           </div>
 
-          <div className="flex items-center">
-            <button
-              className={classnames({
-                "flex h-8 w-8 cursor-pointer items-center justify-center rounded-tr rounded-br border": true,
-                "border-gray-300 text-green-500 dark:border-gray-700": true,
-              })}
-              onClick={() => {
-                if (quantity >= data.quantityInStock) {
-                  const message = `حداکثر موجودی قابل سفارش ${data.quantityInStock} عدد است.`;
-                  toast.error(message);
-                } else {
-                  setQuantity((prev) => prev + 1);
-                }
-              }}
-            >
-              <FaPlus size={17} />
-            </button>
-            <div className="flex h-8 w-8 items-center justify-center border-y border-gray-300 font-semibold select-none dark:border-gray-700">
-              {quantity}
-            </div>
-            <button
-              className={classnames({
-                "flex h-8 w-8 cursor-pointer items-center justify-center rounded-tl rounded-bl border": true,
-                "border-gray-300 text-rose-500 dark:border-gray-700": true,
-              })}
-              onClick={() => {
-                if (quantity !== 1) {
-                  setQuantity((prev) => prev - 1);
-                }
-              }}
-            >
-              <LuMinus size={17} />
-            </button>
-          </div>
-
-          <button
-            className={classnames({
-              "cursor-pointer rounded border border-yellow-300 p-2 hover:bg-yellow-500/25": true,
-              "disabled:cursor-default disabled:hover:bg-transparent": true,
-            })}
-            disabled={data.quantityInStock === 0}
-          >
-            {data.quantityInStock === 0 ? (
-              <div className="flex items-center gap-1.5">
-                <FaXmark size={17} className="text-rose-500" />
-                <span>اتمام موجودی</span>
-              </div>
-            ) : (
-              <div className="flex items-center gap-1.5">
-                <FaCartPlus size={17} />
-                <span>افزودن به سبد خرید</span>
-              </div>
-            )}
-          </button>
+          <AddToCartButton data={data} />
 
           <div className="flex flex-col gap-2">
             <h4>توضیحات :</h4>
