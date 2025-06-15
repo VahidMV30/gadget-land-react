@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { useProductsWithFiltersStore } from "../../store/useProductsWithFiltersStore";
+import { useGlobalStore } from "../../store/globalStore";
+import { useProductsWithFiltersStore } from "../../store/productsWithFiltersStore";
 import { CustomCheckbox } from "../CustomCheckbox";
-import { useGlobalStore } from "../../store/useGlobalStore";
 
 export const DiscountSelector = () => {
   const [searchParams, setSearchParams] = useSearchParams();

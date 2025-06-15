@@ -3,8 +3,8 @@ import { FaTags } from "react-icons/fa6";
 import { useSearchParams } from "react-router-dom";
 
 import useFetchAllCategoriesQuery from "../../hooks/reactQuery/categories/queries/useFetchAllCategoriesQuery";
-import { useGlobalStore } from "../../store/useGlobalStore";
-import { useProductsWithFiltersStore } from "../../store/useProductsWithFiltersStore";
+import { useGlobalStore } from "../../store/globalStore";
+import { useProductsWithFiltersStore } from "../../store/productsWithFiltersStore";
 import { CustomCheckbox } from "../CustomCheckbox";
 import { Spinner } from "../Spinner";
 

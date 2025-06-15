@@ -2,11 +2,12 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
 import { Divider } from "../components/Divider";
-import { AddToCartButton } from "../components/ProductDetails/AddToCartButton";
-import { ProductImages } from "../components/ProductDetails/ProductImages";
-import { ProductRating } from "../components/ProductDetails/ProductRating";
-import { ProductReviews } from "../components/ProductDetails/ProductReviews";
-import { ReviewForm } from "../components/ProductDetails/ReviewForm";
+
+import { AddToCartButton } from "../components/product-details/AddToCartButton";
+import { ProductImages } from "../components/product-details/ProductImages";
+import { ProductRating } from "../components/product-details/ProductRating";
+import { ProductReviews } from "../components/product-details/ProductReviews";
+import { ReviewForm } from "../components/product-details/ReviewForm";
 import { Spinner } from "../components/Spinner";
 import useFetchProductDetailsBySlugQuery from "../hooks/reactQuery/products/queries/useFetchProductDetailsBySlugQuery";
 import useMetadata from "../hooks/useMetadata";

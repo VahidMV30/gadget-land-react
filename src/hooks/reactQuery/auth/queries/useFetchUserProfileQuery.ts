@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 import { fetchUserProfileApi } from "../../../../api/authApi";
-import { useAuthStore } from "../../../../store/useAuthStore";
+import { useAuthStore } from "../../../../store/authStore";
 import { UserResponse } from "../../../../types/authTypes";
 
 const useFetchUserProfileQuery = () => {

@@ -1,16 +1,15 @@
 import axios from "axios";
 import classnames from "classnames";
 import { FaCheck, FaXmark } from "react-icons/fa6";
-import { useParams } from "react-router-dom";
-import { LuTrash2, LuTableProperties } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { LuTableProperties, LuTrash2 } from "react-icons/lu";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { Divider } from "../../../components/Divider";
-import { ProductRating } from "../../../components/ProductDetails/ProductRating";
+import { ProductRating } from "../../../components/product-details/ProductRating";
 import { Spinner } from "../../../components/Spinner";
+import useDeleteReviewMutation from "../../../hooks/reactQuery/reviews/mutations/useDeleteReviewMutation";
 import useToggleConformationStatusMutation from "../../../hooks/reactQuery/reviews/mutations/useToggleConformationStatusMutation";
 import useFetchReviewDetailsByIdQuery from "../../../hooks/reactQuery/reviews/queries/useFetchReviewDetailsByIdQuery";
-import useDeleteReviewMutation from "../../../hooks/reactQuery/reviews/mutations/useDeleteReviewMutation";
 import useMetadata from "../../../hooks/useMetadata";
 
 const ReviewDetailsPage = () => {

@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { FaSortAmountDown } from "react-icons/fa";
 
 import { ProductSortOrderType } from "../../types/productTypes";
-import { useProductsWithFiltersStore } from "../../store/useProductsWithFiltersStore";
+import { useProductsWithFiltersStore } from "../../store/productsWithFiltersStore";
 
 const sortOrderItems: { title: string; sortOrder: ProductSortOrderType }[] = [
   {

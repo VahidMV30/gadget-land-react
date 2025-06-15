@@ -1,6 +1,6 @@
 import classnames from "classnames";
 
-import { useGlobalStore } from "../../store/useGlobalStore";
+import { useGlobalStore } from "../../store/globalStore";
 import { Divider } from "../Divider";
 import { BrandSelector } from "./BrandSelector";
 import { CategorySelector } from "./CategorySelector";

@@ -1,0 +1,12 @@
+import { axiosInstance } from "../lib/axios";
+import { UpdateUserAddressInfoWithCityIdRequest } from "../types/userTypes";
+
+export const fetchUserAddressInfoApi = async () => {
+  const response = await axiosInstance.get("/users/user-address-info");
+  return response.data;
+};
+
+export const updateUserAddressInfoApi = async (data: UpdateUserAddressInfoWithCityIdRequest) => {
+  const response = await axiosInstance.post("/users", data);
+  return await response.data;
+};

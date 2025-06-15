@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { LuShoppingCart } from "react-icons/lu";
 import classnames from "classnames";
 
-import { useCartStore } from "../store/useCartStore";
+import { useCartStore } from "../store/cartStore";
 
 export const CartButton = () => {
   const totalQuantity = useCartStore((state) => state.getTotalQuantity());

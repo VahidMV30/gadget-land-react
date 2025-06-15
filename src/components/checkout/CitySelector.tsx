@@ -1,46 +1,51 @@
-import axios from "axios";
+import { useEffect, useState } from "react";
 import classnames from "classnames";
-import { useState } from "react";
+import axios from "axios";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 
-import { Spinner } from "../../Spinner";
-import { CategoryResponse } from "../../../types/categoryTypes";
+import useFetchCitiesByProvinceIdQuery from "../../hooks/reactQuery/cities/queries/useFetchCitiesByProvinceIdQuery";
+import { CityResponse } from "../../types/cityTypes";
+import { useGlobalStore } from "../../store/globalStore";
+import { Spinner } from "../Spinner";
 
-interface Props {
-  title: string;
-  initialSelectedItem?: { id: number; name: string };
-  data: CategoryResponse[];
-  isLoading: boolean;
-  isError: boolean;
-  error: Error | null;
-  disabled: boolean;
-  onSelect: (id: number) => void;
-}
-
-export const CategorySearchSelect = ({
-  title,
-  initialSelectedItem,
-  data,
-  isLoading,
-  isError,
-  error,
-  disabled,
-  onSelect,
-}: Props) => {
+export const CitySelector = ({ disabled }: { disabled: boolean }) => {
+  const { data, isLoading, isError, error } = useFetchCitiesByProvinceIdQuery();
+  const { selectedCityId, setSelectedCityId } = useGlobalStore();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [selectedItem, setSelectedItem] = useState<{ id: number; name: string } | null>(
-    initialSelectedItem ? initialSelectedItem : null,
-  );
+  const [selectedCity, setSelectedCity] = useState<CityResponse | null>(null);
+
+  useEffect(() => {
+    if (data) {
+      const currentCity = data.find((x) => x.id === selectedCityId)!;
+      setSelectedCity(currentCity);
+    }
+  }, [data, selectedCityId]);
 
   const filteredOptions = data?.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
 
-  const handleSelect = (item: { id: number; name: string } | null) => {
-    setSelectedItem(item);
-    onSelect(item!.id);
+  const handleSelect = (item: CityResponse) => {
+    setSelectedCity(item);
+    setSelectedCityId(item.id);
     setIsOpen(false);
     setQuery("");
   };
+
+  if (isLoading) {
+    return (
+      <button
+        type="button"
+        className={classnames({
+          "flex w-full items-center justify-between rounded border border-gray-300": true,
+          "bg-white p-2 text-right dark:border-gray-700 dark:bg-gray-800": true,
+        })}
+        disabled={true}
+      >
+        <span>انتخاب شهر</span>
+        <Spinner size={17} />
+      </button>
+    );
+  }
 
   if (isError) {
     if (axios.isAxiosError(error)) {
@@ -68,14 +73,10 @@ export const CategorySearchSelect = ({
           "flex w-full cursor-pointer items-center justify-between rounded border border-gray-300": true,
           "bg-white p-2 text-right disabled:cursor-default dark:border-gray-700 dark:bg-gray-800": true,
         })}
-        disabled={isLoading || disabled}
+        disabled={disabled}
       >
-        <span>{selectedItem?.name || title}</span>
-        {isLoading ? (
-          <Spinner size={17} />
-        ) : (
-          <span>{isOpen ? <HiChevronUp size={17} /> : <HiChevronDown size={17} />}</span>
-        )}
+        <span>{selectedCity?.name || "انتخاب شهر"}</span>
+        <span>{isOpen ? <HiChevronUp size={17} /> : <HiChevronDown size={17} />}</span>
       </button>
 
       {isOpen && (

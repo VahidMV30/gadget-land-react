@@ -5,8 +5,8 @@ import { LuFactory } from "react-icons/lu";
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
 
-import { useAuthStore } from "../../store/useAuthStore";
-import { useGlobalStore } from "../../store/useGlobalStore";
+import { useAuthStore } from "../../store/authStore";
+import { useGlobalStore } from "../../store/globalStore";
 import { Divider } from "../Divider";
 import { SidebarLogoutButton } from "../SidebarLogoutButton";
 import { AdminSidebarMenuItem } from "./AdminSidebarMenuItem";

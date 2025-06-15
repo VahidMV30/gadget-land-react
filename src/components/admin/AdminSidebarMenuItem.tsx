@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import { IconType } from "react-icons";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useGlobalStore } from "../../store/useGlobalStore";
+import { useGlobalStore } from "../../store/globalStore";
 
 interface Props {
   href: string;

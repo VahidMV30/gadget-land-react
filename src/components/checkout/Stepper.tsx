@@ -1,0 +1,39 @@
+import { FaLocationDot, FaClipboardList, FaCircleCheck } from "react-icons/fa6";
+import classNames from "classnames";
+
+interface Props {
+  currentStep: number;
+}
+
+export const Stepper = ({ currentStep }: Props) => {
+  const steps = [
+    { icon: <FaLocationDot size={18} />, label: "آدرس گیرنده" },
+    { icon: <FaClipboardList size={18} />, label: "مرور سفارش" },
+    { icon: <FaCircleCheck size={18} />, label: "پایان سفارش" },
+  ];
+
+  return (
+    <div className="relative mx-auto mt-10 mb-10 flex max-w-xl items-center justify-between">
+      <div className="absolute top-5 right-0 left-0 z-0 h-0.5 bg-gray-300 dark:bg-gray-700" />
+
+      {steps.map((step, index) => {
+        const status = index < currentStep ? "done" : index === currentStep ? "current" : "pending";
+
+        return (
+          <div key={index} className="relative z-10 flex flex-1 flex-col items-center">
+            <div
+              className={classNames("flex h-10 w-10 items-center justify-center rounded-full border", {
+                "border-green-300 bg-green-100 text-green-600": status === "done",
+                "border-yellow-300 bg-yellow-100 text-yellow-600": status === "current",
+                "border-pink-300 bg-pink-100 text-pink-600": status === "pending",
+              })}
+            >
+              {step.icon}
+            </div>
+            <div className="mt-2 text-xs font-semibold text-gray-400">{step.label}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};

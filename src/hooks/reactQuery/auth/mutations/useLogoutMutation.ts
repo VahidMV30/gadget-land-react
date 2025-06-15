@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
 import { logoutApi } from "../../../../api/authApi";
-import { useAuthStore } from "../../../../store/useAuthStore";
+import { useAuthStore } from "../../../../store/authStore";
 
 const useLogoutMutation = () => {
   const { setUser, setIsAuthenticated } = useAuthStore();

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { RegisterRequest, UserResponse } from "../../../../types/authTypes";
 import { registerApi } from "../../../../api/authApi";
-import { useAuthStore } from "../../../../store/useAuthStore";
+import { useAuthStore } from "../../../../store/authStore";
 
 const useRegisterMutation = () => {
   const { setUser, setIsAuthenticated } = useAuthStore();

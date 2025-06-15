@@ -8,9 +8,9 @@ import { FaPenClip } from "react-icons/fa6";
 import { LuImagePlus, LuTrash } from "react-icons/lu";
 import { useParams } from "react-router-dom";
 
-import { CategorySearchSelect } from "../../../components/admin/products/CategorySearchSelect";
 import { Divider } from "../../../components/Divider";
 import { FormErrorMessage } from "../../../components/FormErrorMessage";
+import { SearchableSelect } from "../../../components/SearchableSelect";
 import { Spinner } from "../../../components/Spinner";
 import { IMAGE_URL } from "../../../constants";
 import useFetchAllBrandsQuery from "../../../hooks/reactQuery/brands/queries/useFetchAllBrandsQuery";
@@ -191,7 +191,7 @@ const UpdateProductPage = () => {
           <div className="col-span-12 flex flex-col gap-1 md:col-span-6">
             <div className="flex flex-col gap-1">
               <label>دسته بندی</label>
-              <CategorySearchSelect
+              <SearchableSelect
                 title="انتخاب دسته بندی"
                 initialSelectedItem={{ id: data!.categoryId, name: data!.categoryName }}
                 data={categoriesData!}
@@ -207,7 +207,7 @@ const UpdateProductPage = () => {
           <div className="col-span-12 flex flex-col gap-1 md:col-span-6">
             <div className="flex flex-col gap-1">
               <label>برند</label>
-              <CategorySearchSelect
+              <SearchableSelect
                 title="انتخاب برند"
                 initialSelectedItem={{ id: data!.brandId, name: data!.brandName }}
                 data={brandsData!}

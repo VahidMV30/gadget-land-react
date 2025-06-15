@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { useSearchParams } from "react-router-dom";
 import classnames from "classnames";
-
-import { useProductsWithFiltersStore } from "../../store/useProductsWithFiltersStore";
+import { useProductsWithFiltersStore } from "../../store/productsWithFiltersStore";
 
 export const PaginationButtons = ({ totalPages }: { totalPages: number }) => {
   const { pageIndex, setPageIndex } = useProductsWithFiltersStore();

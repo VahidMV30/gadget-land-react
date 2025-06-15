@@ -2,7 +2,7 @@ import { LuLogIn, LuUser } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 import { ADMIN_ROLE } from "../constants";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store/authStore";
 import { Spinner } from "./Spinner";
 
 export const AuthButton = () => {

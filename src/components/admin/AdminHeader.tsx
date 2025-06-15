@@ -4,7 +4,7 @@ import { LuMenu } from "react-icons/lu";
 import logo from "../../assets/vite.svg";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { AuthButton } from "../AuthButton";
-import { useGlobalStore } from "../../store/useGlobalStore";
+import { useGlobalStore } from "../../store/globalStore";
 
 export const AdminHeader = () => {
   const { setIsAdminSidebarOpen } = useGlobalStore();

@@ -3,8 +3,9 @@ import { LuFactory } from "react-icons/lu";
 import { useSearchParams } from "react-router-dom";
 
 import useFetchAllBrandsQuery from "../../hooks/reactQuery/brands/queries/useFetchAllBrandsQuery";
-import { useGlobalStore } from "../../store/useGlobalStore";
-import { useProductsWithFiltersStore } from "../../store/useProductsWithFiltersStore";
+
+import { useGlobalStore } from "../../store/globalStore";
+import { useProductsWithFiltersStore } from "../../store/productsWithFiltersStore";
 import { CustomCheckbox } from "../CustomCheckbox";
 import { Spinner } from "../Spinner";
 

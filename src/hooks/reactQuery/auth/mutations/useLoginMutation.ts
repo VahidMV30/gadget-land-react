@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { loginApi } from "../../../../api/authApi";
 import { ADMIN_ROLE } from "../../../../constants";
-import { useAuthStore } from "../../../../store/useAuthStore";
+import { useAuthStore } from "../../../../store/authStore";
 import { LoginRequest, UserResponse } from "../../../../types/authTypes";
 
 const useLoginMutation = () => {

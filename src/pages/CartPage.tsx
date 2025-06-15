@@ -9,7 +9,7 @@ import { Spinner } from "../components/Spinner";
 import { IMAGE_URL } from "../constants";
 import useFetchCartProductsByIdsQuery from "../hooks/reactQuery/products/queries/useFetchCartProductsByIdsQuery";
 import useMetadata from "../hooks/useMetadata";
-import { useCartStore } from "../store/useCartStore";
+import { useCartStore } from "../store/cartStore";
 import { parsePriceToString } from "../utils/formatPrice";
 
 const CartPage = () => {

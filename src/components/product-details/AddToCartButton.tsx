@@ -1,8 +1,8 @@
 import classnames from "classnames";
 import toast from "react-hot-toast";
-import { FaCartPlus, FaXmark, FaBasketShopping } from "react-icons/fa6";
+import { FaBasketShopping, FaCartPlus, FaXmark } from "react-icons/fa6";
 
-import { useCartStore } from "../../store/useCartStore";
+import { useCartStore } from "../../store/cartStore";
 import { ProductDetailsResponse } from "../../types/productTypes";
 
 interface Props {

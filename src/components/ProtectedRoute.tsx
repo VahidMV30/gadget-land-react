@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store/authStore";
 
 interface Props {
   allowedRoles: "Admin" | "User";

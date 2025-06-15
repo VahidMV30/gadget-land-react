@@ -31,7 +31,7 @@ import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
-import { useAuthStore } from "./store/useAuthStore";
+import { useAuthStore } from "./store/authStore";
 
 const App = () => {
   useFetchUserProfileQuery();

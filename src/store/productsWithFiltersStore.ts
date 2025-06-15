@@ -19,7 +19,7 @@ export const useProductsWithFiltersStore = create<ProductsWithFiltersState>((set
   selectedCategorySlug: null,
   selectedBrandSlug: null,
   isOnlyDiscounted: false,
-  sortOrder: "Latest",
+  sortOrder: "latest",
   pageIndex: 1,
   setSelectedCategorySlug: (value) => set({ selectedCategorySlug: value }),
   setSelectedBrandSlug: (value) => set({ selectedBrandSlug: value }),

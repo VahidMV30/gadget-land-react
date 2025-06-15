@@ -6,8 +6,9 @@ import toast from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
 import { LuImagePlus, LuTrash } from "react-icons/lu";
 
-import { CategorySearchSelect } from "../../../components/admin/products/CategorySearchSelect";
+import { Divider } from "../../../components/Divider";
 import { FormErrorMessage } from "../../../components/FormErrorMessage";
+import { SearchableSelect } from "../../../components/SearchableSelect";
 import { Spinner } from "../../../components/Spinner";
 import useFetchAllBrandsQuery from "../../../hooks/reactQuery/brands/queries/useFetchAllBrandsQuery";
 import useFetchAllCategoriesQuery from "../../../hooks/reactQuery/categories/queries/useFetchAllCategoriesQuery";
@@ -15,9 +16,8 @@ import useCreateProductMutation from "../../../hooks/reactQuery/products/mutatio
 import useMetadata from "../../../hooks/useMetadata";
 import { createProductSchema } from "../../../schemas/productSchemas";
 import { CreateProductRequest } from "../../../types/productTypes";
-import slugify from "../../../utils/slugify";
 import formatPrice from "../../../utils/formatPrice";
-import { Divider } from "../../../components/Divider";
+import slugify from "../../../utils/slugify";
 
 const CreateProductPage = () => {
   useMetadata("ایجاد محصول");
@@ -148,7 +148,7 @@ const CreateProductPage = () => {
           <div className="col-span-12 flex flex-col gap-1 md:col-span-6">
             <div className="flex flex-col gap-1">
               <label>دسته بندی</label>
-              <CategorySearchSelect
+              <SearchableSelect
                 title="انتخاب دسته بندی"
                 data={categoriesData!}
                 isLoading={isLoadingCategories}
@@ -163,7 +163,7 @@ const CreateProductPage = () => {
           <div className="col-span-12 flex flex-col gap-1 md:col-span-6">
             <div className="flex flex-col gap-1">
               <label>برند</label>
-              <CategorySearchSelect
+              <SearchableSelect
                 title="انتخاب برند"
                 data={brandsData!}
                 isLoading={isLoadingBrands}

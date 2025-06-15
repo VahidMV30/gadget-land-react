@@ -3,15 +3,15 @@ import classnames from "classnames";
 import { LuFilter } from "react-icons/lu";
 
 import { Divider } from "../components/Divider";
-import { PaginationButtons } from "../components/ProductsWithFilters/PaginationButtons";
-import { ProductCard } from "../components/ProductsWithFilters/ProductCard";
-import { ProductsFiltersSidebar } from "../components/ProductsWithFilters/ProductsFiltersSidebar";
-import { SortOrderSelector } from "../components/ProductsWithFilters/SortOrderSelector";
+import { PaginationButtons } from "../components/products-with-filters/PaginationButtons";
+import { ProductCard } from "../components/products-with-filters/ProductCard";
+import { ProductsFiltersSidebar } from "../components/products-with-filters/ProductsFiltersSidebar";
+import { SortOrderSelector } from "../components/products-with-filters/SortOrderSelector";
 import { Spinner } from "../components/Spinner";
 import useFetchProductsWithFiltersQuery from "../hooks/reactQuery/products/queries/useFetchProductsWithFiltersQuery";
 import useMetadata from "../hooks/useMetadata";
-import { useGlobalStore } from "../store/useGlobalStore";
-import { useProductsWithFiltersStore } from "../store/useProductsWithFiltersStore";
+import { useGlobalStore } from "../store/globalStore";
+import { useProductsWithFiltersStore } from "../store/productsWithFiltersStore";
 
 const ProductsPage = () => {
   useMetadata("محصولات");

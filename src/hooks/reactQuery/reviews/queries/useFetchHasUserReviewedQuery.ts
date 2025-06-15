@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchHasUserReviewedApi } from "../../../../api/reviewsApi";
-import { useAuthStore } from "../../../../store/useAuthStore";
+import { useAuthStore } from "../../../../store/authStore";
 
 const useFetchHasUserReviewedQuery = (productId: number) => {
   const { isAuthenticated } = useAuthStore();
