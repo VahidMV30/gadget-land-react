@@ -35,8 +35,8 @@ export const PaginationButtons = ({ totalPages }: { totalPages: number }) => {
           "disabled:cursor-default disabled:border-gray-300 disabled:hover:bg-transparent": true,
           "dark:hover:bg-orange-700 disabled:dark:border-gray-700": true,
         })}
-        onClick={() => handlePageIndexChange("increment")}
-        disabled={pageIndex === totalPages}
+        onClick={() => handlePageIndexChange("decrement")}
+        disabled={pageIndex === 1}
       >
         <FaArrowRight size={17} />
       </button>
@@ -47,8 +47,8 @@ export const PaginationButtons = ({ totalPages }: { totalPages: number }) => {
           "disabled:cursor-default disabled:border-gray-300 disabled:hover:bg-transparent": true,
           "dark:hover:bg-orange-700 disabled:dark:border-gray-700": true,
         })}
-        onClick={() => handlePageIndexChange("decrement")}
-        disabled={pageIndex === 1}
+        onClick={() => handlePageIndexChange("increment")}
+        disabled={pageIndex === totalPages}
       >
         <FaArrowLeft size={17} />
       </button>

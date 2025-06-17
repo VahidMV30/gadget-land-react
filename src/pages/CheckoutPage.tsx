@@ -15,16 +15,16 @@ const CheckoutPage = () => {
     <>
       <Stepper currentStep={step - 1} />
 
-      <div className="relative min-h-[606px] overflow-hidden">
+      <div className="relative top-6 min-h-[606px] overflow-hidden">
         <AnimatePresence mode="wait">
           {step === 1 && (
             <motion.div
               key="address"
-              initial={{ opacity: 0, x: 100, rotate: 5, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -100, rotate: -5, scale: 0.95 }}
-              transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
-              className="absolute w-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-full"
             >
               <AddressStep onNext={nextStep} />
             </motion.div>
@@ -33,13 +33,13 @@ const CheckoutPage = () => {
           {step === 2 && (
             <motion.div
               key="payment"
-              initial={{ opacity: 0, x: 100, rotate: 5, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -100, rotate: -5, scale: 0.95 }}
-              transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
-              className="absolute w-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-full"
             >
-              <PaymentStep onNext={nextStep} onBack={prevStep} />
+              <PaymentStep onBack={prevStep} />
             </motion.div>
           )}
         </AnimatePresence>

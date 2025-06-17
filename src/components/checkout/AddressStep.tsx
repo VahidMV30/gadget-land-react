@@ -190,10 +190,8 @@ export const AddressStep = ({ onNext }: Props) => {
           <button
             type="button"
             className={classnames({
-              "mt-2 flex items-center justify-center gap-1.5 rounded-tr-2xl rounded-br-2xl border border-teal-300":
-                true,
-              "bg-teal-500/25 p-2 hover:cursor-pointer hover:bg-teal-500/30 dark:border-teal-700": true,
-              "disabled:cursor-default disabled:hover:bg-teal-500/25": true,
+              "mt-2 flex items-center justify-center gap-1.5 rounded-tr-2xl rounded-br-2xl text-white": true,
+              "bg-blue-600 p-2 hover:cursor-pointer hover:bg-blue-500 disabled:cursor-default": true,
             })}
             onClick={() => navigate("/cart")}
             disabled={isPending}
@@ -205,10 +203,8 @@ export const AddressStep = ({ onNext }: Props) => {
           <button
             type="submit"
             className={classnames({
-              "mt-2 flex items-center justify-center gap-1.5 rounded-tl-2xl rounded-bl-2xl border border-teal-300":
-                true,
-              "bg-teal-500/25 p-2 hover:cursor-pointer hover:bg-teal-500/30 dark:border-teal-700": true,
-              "disabled:cursor-default disabled:hover:bg-teal-500/25": true,
+              "mt-2 flex items-center justify-center gap-1.5 rounded-tl-2xl rounded-bl-2xl text-white": true,
+              "bg-blue-600 p-2 hover:cursor-pointer hover:bg-blue-500 disabled:cursor-default": true,
             })}
             disabled={isPending}
           >

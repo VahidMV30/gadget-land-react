@@ -52,7 +52,7 @@ const App = () => {
         {!isAdminRoute ? (
           <>
             <RootHeader />
-            <main className="container mx-auto my-4 max-w-[1280px] px-4 xl:px-0">
+            <main className="container mx-auto my-4 mt-20 max-w-[1280px] px-4 xl:px-0">
               <div className="flex flex-col items-center justify-center gap-2">
                 <Spinner size={25} />
                 <span>در حال بارگذاری ...</span>
@@ -62,7 +62,7 @@ const App = () => {
         ) : (
           <>
             <AdminHeader />
-            <main className="container mx-auto my-4 max-w-[1280px] px-4 xl:px-0">
+            <main className="container mx-auto my-4 mt-20 max-w-[1280px] px-4 xl:px-0">
               <div className="flex flex-col items-center justify-center gap-2">
                 <Spinner size={25} />
                 <span>در حال بارگذاری ...</span>

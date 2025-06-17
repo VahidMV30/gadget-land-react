@@ -90,7 +90,7 @@ const CartPage = () => {
 
   return (
     <div>
-      <h4 className="rounded-xl border border-cyan-500 bg-cyan-500/25 p-4 text-center font-semibold">🛒 سبد خرید</h4>
+      <h4 className="rounded-xl bg-gray-200 p-4 text-center font-semibold dark:bg-gray-800">🛒 سبد خرید</h4>
 
       <Divider />
 
@@ -141,6 +141,7 @@ const CartPage = () => {
                         <div>{item.stringPrice}</div>
                       )}
                     </td>
+
                     <td className="truncate px-4 py-2">{item.quantityInStock}</td>
 
                     <td className="truncate px-4 py-2">
@@ -176,7 +177,10 @@ const CartPage = () => {
                       })()}
                     </td>
                     <td className="truncate px-4 py-2">
-                      <button className="cursor-pointer text-red-500" onClick={() => deleteItem(item.id)}>
+                      <button
+                        className="cursor-pointer text-red-500 hover:text-yellow-500 dark:hover:text-yellow-300"
+                        onClick={() => deleteItem(item.id)}
+                      >
                         <FaTrash size={17} />
                       </button>
                     </td>
@@ -186,7 +190,7 @@ const CartPage = () => {
             </table>
           </div>
 
-          <div className="order-1 col-span-12 flex h-fit flex-col gap-4 rounded border border-gray-300 p-4 lg:order-2 lg:col-span-3 dark:border-gray-700">
+          <div className="order-1 col-span-12 flex h-fit flex-col gap-4 rounded bg-gray-200 p-4 lg:order-2 lg:col-span-3 dark:bg-gray-800">
             <p>🔢 تعداد کل محصولات : {getTotalQuantity()}</p>
             <p>💰 تخفیف : {parsePriceToString(totalDiscount!)} تومان</p>
             <p>💵 مبلغ کل : {parsePriceToString(totalPrice!)} تومان</p>
@@ -195,7 +199,7 @@ const CartPage = () => {
 
             <Link
               to="/checkout"
-              className="flex items-center justify-center gap-1.5 rounded border border-teal-300 bg-teal-500/25 p-2 hover:bg-teal-500/30 dark:border-teal-700"
+              className="flex items-center justify-center gap-1.5 rounded bg-blue-600 p-2 text-white hover:bg-blue-500"
             >
               <FaBagShopping size={17} />
               <span>تکمیل فرآیند خرید</span>

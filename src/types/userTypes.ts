@@ -8,6 +8,7 @@ export type UserAddressInfoResponse = {
   cityId?: number;
   cityName?: string;
   fullName: string;
+  email: string;
   mobile?: string;
   postalCode?: string;
   address?: string;

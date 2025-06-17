@@ -7,13 +7,13 @@ interface Props {
 
 export const Stepper = ({ currentStep }: Props) => {
   const steps = [
-    { icon: <FaLocationDot size={18} />, label: "آدرس گیرنده" },
-    { icon: <FaClipboardList size={18} />, label: "مرور سفارش" },
-    { icon: <FaCircleCheck size={18} />, label: "پایان سفارش" },
+    { icon: <FaLocationDot size={20} />, label: "آدرس گیرنده" },
+    { icon: <FaClipboardList size={20} />, label: "مرور سفارش" },
+    { icon: <FaCircleCheck size={20} />, label: "پایان سفارش" },
   ];
 
   return (
-    <div className="relative mx-auto mt-10 mb-10 flex max-w-xl items-center justify-between">
+    <div className="relative top-6 mx-auto my-10 flex max-w-xl items-center justify-between">
       <div className="absolute top-5 right-0 left-0 z-0 h-0.5 bg-gray-300 dark:bg-gray-700" />
 
       {steps.map((step, index) => {
