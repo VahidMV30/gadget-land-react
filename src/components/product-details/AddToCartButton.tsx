@@ -34,8 +34,10 @@ export const AddToCartButton = ({ data }: Props) => {
   return (
     <button
       className={classnames({
-        "cursor-pointer rounded border border-yellow-300 p-2 hover:bg-yellow-500/25": true,
+        "cursor-pointer rounded border p-2 hover:bg-sky-500/25": true,
         "disabled:cursor-default disabled:hover:bg-transparent": true,
+        "border-sky-300": data.quantityInStock > 0,
+        "border-rose-300": data.quantityInStock === 0,
       })}
       onClick={handleAddToCart}
       disabled={data.quantityInStock === 0}

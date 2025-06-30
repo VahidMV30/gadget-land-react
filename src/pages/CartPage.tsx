@@ -3,6 +3,7 @@ import { useEffect, useMemo } from "react";
 import toast from "react-hot-toast";
 import { FaMinus, FaPlus, FaTrash, FaBagShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import classnames from "classnames";
 
 import { Divider } from "../components/Divider";
 import { Spinner } from "../components/Spinner";
@@ -14,16 +15,11 @@ import { parsePriceToString } from "../utils/formatPrice";
 
 const CartPage = () => {
   useMetadata("سبد خرید");
-  const {
-    items: cartItems,
-    getTotalQuantity,
-    getQuantityByProductId,
-    setQuantity,
-    increaseQuantity,
-    decreaseQuantity,
-    deleteItem,
-  } = useCartStore();
-  const ids = useMemo(() => cartItems.map((item) => item.productId), [cartItems]);
+  const { items: cartItems, getTotalQuantity, increaseQuantity, decreaseQuantity } = useCartStore();
+  const getQuantityByProductId = useCartStore((state) => state.getQuantityByProductId);
+  const setQuantity = useCartStore((state) => state.setQuantity);
+  const deleteItem = useCartStore((state) => state.deleteItem);
+  const ids = cartItems.map((item) => item.productId);
   const { data, isLoading, isError, error } = useFetchCartProductsByIdsQuery(ids);
 
   useEffect(() => {
@@ -32,13 +28,18 @@ const CartPage = () => {
     data.forEach((product) => {
       const quantityInCart = getQuantityByProductId(product.id);
 
+      if (product.quantityInStock === 0) {
+        deleteItem(product.id);
+        return toast.error(`محصول ${product.name} به علت اتمام موجودی حذف شد.`, { duration: 7000 });
+      }
+
       if (quantityInCart > product.quantityInStock) {
         setQuantity(product.id, product.quantityInStock);
 
-        toast.error(`تعداد محصول «${product.name}» به ${product.quantityInStock} کاهش یافت.`, { duration: 5000 });
+        toast.error(`تعداد محصول «${product.name}» به ${product.quantityInStock} کاهش یافت.`, { duration: 7000 });
       }
     });
-  }, [data, getQuantityByProductId, setQuantity]);
+  }, [data, deleteItem, getQuantityByProductId, setQuantity]);
 
   const handleIncreaseQuantity = (productId: number, quantityInStock: number) => {
     const existingQuantity = getQuantityByProductId(productId);
@@ -67,6 +68,15 @@ const CartPage = () => {
       const cartItem = cartItems.find((x) => x.productId === item.id);
       if (!cartItem) return acc;
 
+      return acc + item.price * cartItem.quantity;
+    }, 0);
+  }, [data, cartItems]);
+
+  const totalPriceWithDiscount = useMemo(() => {
+    return data?.reduce((acc, item) => {
+      const cartItem = cartItems.find((x) => x.productId === item.id);
+      if (!cartItem) return acc;
+
       const unitPrice = item.discountPrice ?? item.price;
       return acc + unitPrice * cartItem.quantity;
     }, 0);
@@ -90,7 +100,10 @@ const CartPage = () => {
 
   return (
     <div>
-      <h4 className="rounded-xl bg-gray-200 p-4 text-center font-semibold dark:bg-gray-800">🛒 سبد خرید</h4>
+      <h4 className="flex items-center justify-center gap-1.5 rounded-xl bg-gray-200 p-4 text-center font-semibold dark:bg-gray-800">
+        <FaBagShopping size={17} />
+        <span>سبد خرید</span>
+      </h4>
 
       <Divider />
 
@@ -193,13 +206,17 @@ const CartPage = () => {
           <div className="order-1 col-span-12 flex h-fit flex-col gap-4 rounded bg-gray-200 p-4 lg:order-2 lg:col-span-3 dark:bg-gray-800">
             <p>🔢 تعداد کل محصولات : {getTotalQuantity()}</p>
             <p>💰 تخفیف : {parsePriceToString(totalDiscount!)} تومان</p>
-            <p>💵 مبلغ کل : {parsePriceToString(totalPrice!)} تومان</p>
+            <p>💵 جمع کل : {parsePriceToString(totalPrice!)} تومان</p>
+            <p>💶 با تخفیف : {parsePriceToString(totalPriceWithDiscount!)} تومان</p>
 
             <div className="border-b border-gray-300 dark:border-gray-700"></div>
 
             <Link
-              to="/checkout"
-              className="flex items-center justify-center gap-1.5 rounded bg-blue-600 p-2 text-white hover:bg-blue-500"
+              to="/checkout/address"
+              className={classnames({
+                "flex items-center justify-center gap-1.5 rounded bg-gradient-to-r from-green-600": true,
+                "to-blue-600 p-2 text-white transition hover:from-blue-600 hover:to-green-600": true,
+              })}
             >
               <FaBagShopping size={17} />
               <span>تکمیل فرآیند خرید</span>

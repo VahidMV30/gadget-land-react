@@ -39,7 +39,7 @@ const ProductsPage = () => {
           <button
             className={classnames({
               "flex cursor-pointer items-center gap-1.5 rounded border border-violet-300": true,
-              "bg-violet-500/25 p-1.5 hover:bg-violet-500/30 lg:hidden dark:border-violet-700": true,
+              "bg-violet-500/25 p-2 hover:bg-violet-500/30 lg:hidden dark:border-violet-700": true,
             })}
             onClick={() => setIsProductsFilterSidebarOpen(true)}
           >

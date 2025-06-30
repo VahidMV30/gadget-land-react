@@ -31,9 +31,9 @@ export const PaginationButtons = ({ totalPages }: { totalPages: number }) => {
     <div className="mt-4 flex items-center justify-center gap-4">
       <button
         className={classnames({
-          "cursor-pointer rounded-full border-2 border-orange-300 p-1.5 hover:bg-orange-500": true,
+          "cursor-pointer rounded border-2 border-sky-300 p-1.5 hover:bg-sky-500": true,
           "disabled:cursor-default disabled:border-gray-300 disabled:hover:bg-transparent": true,
-          "dark:hover:bg-orange-700 disabled:dark:border-gray-700": true,
+          "dark:hover:bg-sky-700 disabled:dark:border-gray-700": true,
         })}
         onClick={() => handlePageIndexChange("decrement")}
         disabled={pageIndex === 1}
@@ -43,9 +43,9 @@ export const PaginationButtons = ({ totalPages }: { totalPages: number }) => {
 
       <button
         className={classnames({
-          "cursor-pointer rounded-full border-2 border-orange-300 p-1.5 hover:bg-orange-500": true,
+          "cursor-pointer rounded border-2 border-sky-300 p-1.5 hover:bg-sky-500": true,
           "disabled:cursor-default disabled:border-gray-300 disabled:hover:bg-transparent": true,
-          "dark:hover:bg-orange-700 disabled:dark:border-gray-700": true,
+          "dark:hover:bg-sky-700 disabled:dark:border-gray-700": true,
         })}
         onClick={() => handlePageIndexChange("increment")}
         disabled={pageIndex === totalPages}

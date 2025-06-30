@@ -1,32 +1,33 @@
-import { useEffect, useState } from "react";
-import classnames from "classnames";
 import axios from "axios";
+import classnames from "classnames";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
+import { useState } from "react";
 
-import useFetchCitiesByProvinceIdQuery from "../../hooks/reactQuery/cities/queries/useFetchCitiesByProvinceIdQuery";
-import { CityResponse } from "../../types/cityTypes";
-import { useGlobalStore } from "../../store/globalStore";
-import { Spinner } from "../Spinner";
+import useFetchAllProvincesQuery from "../../../hooks/reactQuery/provinces/queries/useFetchAllProvincesQuery";
+import { ProvinceResponse } from "../../../types/provinceTypes";
+import { Spinner } from "../../Spinner";
+import { useGlobalStore } from "../../../store/globalStore";
 
-export const CitySelector = ({ disabled }: { disabled: boolean }) => {
-  const { data, isLoading, isError, error } = useFetchCitiesByProvinceIdQuery();
-  const { selectedCityId, setSelectedCityId } = useGlobalStore();
+interface Props {
+  initialSelectedProvince: ProvinceResponse | null;
+  disabled: boolean;
+}
+
+export const ProvinceSelector = ({ initialSelectedProvince, disabled }: Props) => {
+  const { data, isLoading, isError, error } = useFetchAllProvincesQuery();
+  const { setSelectedProvinceId, setSelectedCityId } = useGlobalStore();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [selectedCity, setSelectedCity] = useState<CityResponse | null>(null);
-
-  useEffect(() => {
-    if (data) {
-      const currentCity = data.find((x) => x.id === selectedCityId)!;
-      setSelectedCity(currentCity);
-    }
-  }, [data, selectedCityId]);
+  const [selectedProvince, setSelectedProvince] = useState<ProvinceResponse | null>(
+    initialSelectedProvince ? initialSelectedProvince : null,
+  );
 
   const filteredOptions = data?.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
 
-  const handleSelect = (item: CityResponse) => {
-    setSelectedCity(item);
-    setSelectedCityId(item.id);
+  const handleSelect = (item: { id: number; name: string }) => {
+    setSelectedProvince(item);
+    setSelectedProvinceId(item.id);
+    setSelectedCityId(null);
     setIsOpen(false);
     setQuery("");
   };
@@ -41,7 +42,7 @@ export const CitySelector = ({ disabled }: { disabled: boolean }) => {
         })}
         disabled={true}
       >
-        <span>انتخاب شهر</span>
+        <span>انتخاب استان</span>
         <Spinner size={17} />
       </button>
     );
@@ -75,7 +76,7 @@ export const CitySelector = ({ disabled }: { disabled: boolean }) => {
         })}
         disabled={disabled}
       >
-        <span>{selectedCity?.name || "انتخاب شهر"}</span>
+        <span>{selectedProvince?.name || "انتخاب استان"}</span>
         <span>{isOpen ? <HiChevronUp size={17} /> : <HiChevronDown size={17} />}</span>
       </button>
 

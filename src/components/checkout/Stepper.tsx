@@ -24,8 +24,8 @@ export const Stepper = ({ currentStep }: Props) => {
             <div
               className={classNames("flex h-10 w-10 items-center justify-center rounded-full border", {
                 "border-green-300 bg-green-100 text-green-600": status === "done",
-                "border-yellow-300 bg-yellow-100 text-yellow-600": status === "current",
-                "border-pink-300 bg-pink-100 text-pink-600": status === "pending",
+                "border-blue-300 bg-blue-100 text-blue-600": status === "current",
+                "border-gray-300 bg-gray-100 text-gray-600": status === "pending",
               })}
             >
               {step.icon}

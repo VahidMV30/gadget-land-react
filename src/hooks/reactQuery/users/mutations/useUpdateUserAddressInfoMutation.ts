@@ -3,8 +3,11 @@ import { AxiosError } from "axios";
 import { UpdateUserAddressInfoWithCityIdRequest } from "../../../../types/userTypes";
 import { updateUserAddressInfoApi } from "../../../../api/usersApi";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-const useUpdateUserAddressInfoMutation = (onSuccessCallback: () => void) => {
+const useUpdateUserAddressInfoMutation = () => {
+  const navigate = useNavigate();
+
   const updateUserAddressInfo = useMutation<
     { message: string },
     AxiosError<{ errors: { description: string }[] }>,
@@ -13,7 +16,7 @@ const useUpdateUserAddressInfoMutation = (onSuccessCallback: () => void) => {
     mutationFn: (data: UpdateUserAddressInfoWithCityIdRequest) => updateUserAddressInfoApi(data),
     onSuccess: (data) => {
       toast.success(data.message);
-      onSuccessCallback();
+      navigate("/checkout/payment");
     },
     onError: (error) => {
       if (error instanceof AxiosError) {

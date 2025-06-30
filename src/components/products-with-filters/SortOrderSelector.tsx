@@ -59,19 +59,19 @@ export const SortOrderSelector = () => {
   return (
     <div className="relative">
       <button
-        className="flex w-40 cursor-pointer items-center justify-between rounded bg-gray-300 px-2 py-1.5 dark:bg-gray-700"
+        className="flex w-48 cursor-pointer items-center justify-start gap-2 rounded bg-gray-300 px-2 py-2 dark:bg-gray-700"
         onClick={() => setIsOpen(!isOpen)}
       >
         <FaSortAmountDown size={17} />
         <span>{selectedItem.title}</span>
-        <span className="mt-1">{isOpen ? <LuChevronUp size={17} /> : <LuChevronDown size={17} />}</span>
+        <span className="mt-1 mr-auto">{isOpen ? <LuChevronUp size={17} /> : <LuChevronDown size={17} />}</span>
       </button>
       {isOpen && (
         <ul className="absolute top-11 z-20 w-full rounded bg-gray-200 p-2 dark:bg-gray-800">
           {sortOrderItems.map((item) => (
             <li key={item.sortOrder}>
               <button
-                className="w-full cursor-pointer rounded p-2 hover:bg-sky-500/25"
+                className="w-full cursor-pointer rounded p-2 text-right hover:bg-sky-500/25"
                 onClick={() => handleSelectSortOrder(item)}
               >
                 {item.title}
