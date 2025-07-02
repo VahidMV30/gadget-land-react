@@ -16,6 +16,7 @@ type CartState = {
   decreaseQuantity: (productId: number) => void;
   deleteItem: (productId: number) => void;
   isCartEmpty: () => boolean;
+  clearCart: () => void;
 };
 
 export const useCartStore = create<CartState>()(
@@ -70,6 +71,8 @@ export const useCartStore = create<CartState>()(
       },
 
       isCartEmpty: () => get().items.length === 0,
+
+      clearCart: () => set({ items: [] }),
     }),
     {
       name: "cart",

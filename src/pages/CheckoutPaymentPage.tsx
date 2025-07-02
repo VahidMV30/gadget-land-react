@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Spinner } from "../components/Spinner";
 import { Stepper } from "../components/checkout/Stepper";
@@ -14,6 +15,7 @@ import useMetadata from "../hooks/useMetadata";
 
 const CheckoutPaymentPage = () => {
   useMetadata("مرور سفارش");
+  const navigate = useNavigate();
   const { items: cartItems } = useCartStore();
   const ids = useMemo(() => cartItems.map((item) => item.productId), [cartItems]);
   const {
@@ -34,6 +36,17 @@ const CheckoutPaymentPage = () => {
     isError: isAddressError,
     error: addressError,
   } = useFetchUserAddressInfoQuery();
+  const isCartEmpty = useCartStore((state) => state.isCartEmpty);
+
+  useEffect(() => {
+    const checkCart = async () => {
+      if (isCartEmpty()) {
+        navigate("/cart");
+      }
+    };
+
+    checkCart();
+  }, [isCartEmpty, navigate]);
 
   if (isProductsLoading || isSettingsLoading || isAddressLoading) {
     return (

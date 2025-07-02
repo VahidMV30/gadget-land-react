@@ -8,6 +8,7 @@ import { SettingsResponse } from "../../../types/settingTypes";
 import { parsePriceToString } from "../../../utils/formatPrice";
 import { Divider } from "../../Divider";
 import { Spinner } from "../../Spinner";
+import useCreatePaymentMutation from "../../../hooks/reactQuery/payments/mutations/useCreatePaymentMutation";
 
 interface Props {
   products: CartProductResponse[];
@@ -16,7 +17,7 @@ interface Props {
 
 export const PaymentSummary = ({ products, settings }: Props) => {
   const { items: cartItems, getTotalQuantity } = useCartStore();
-  const isPending = false;
+  const { mutate, isPending } = useCreatePaymentMutation();
 
   const totalDiscount = products?.reduce((acc, item) => {
     const cartItem = cartItems.find((x) => x.productId === item.id);
@@ -52,6 +53,10 @@ export const PaymentSummary = ({ products, settings }: Props) => {
     }, 0);
   }, [products, cartItems]);
 
+  const handlePayment = () => {
+    mutate(cartItems);
+  };
+
   return (
     <div className="bg-gray-100 p-4 dark:bg-gray-800">
       <div className="flex flex-col gap-3 rounded">
@@ -72,6 +77,7 @@ export const PaymentSummary = ({ products, settings }: Props) => {
           "disabled:cursor-default disabled:hover:from-green-600 disabled:hover:to-blue-600": true,
         })}
         disabled={isPending}
+        onClick={handlePayment}
       >
         {isPending ? (
           <>

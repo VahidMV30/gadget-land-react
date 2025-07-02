@@ -16,6 +16,7 @@ export const OrderSummary = ({ products }: { products: CartProductResponse[] }) 
             <th className="w-72 p-4 font-medium">نام محصول</th>
             <th className="w-20 p-4 font-medium">عکس</th>
             <th className="w-32 p-4 font-medium">قیمت (تومان)</th>
+            <th className="w-28 p-4 font-medium">موجودی</th>
             <th className="w-32 p-4 font-medium">تعداد</th>
             <th className="w-40 p-4 font-medium">قیمت کل (تومان)</th>
           </tr>
@@ -45,6 +46,8 @@ export const OrderSummary = ({ products }: { products: CartProductResponse[] }) 
                   <div>{item.stringPrice}</div>
                 )}
               </td>
+
+              <td className="truncate px-4 py-2">{item.quantityInStock}</td>
 
               <td className="truncate px-4 py-2">{getQuantityByProductId(item.id) ?? 0}</td>
 

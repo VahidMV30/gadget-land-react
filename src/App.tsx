@@ -25,14 +25,16 @@ import ReviewsPage from "./pages/admin/reviews/ReviewsPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import CartPage from "./pages/CartPage";
+import CheckoutAddressPage from "./pages/CheckoutAddressPage";
+import CheckoutPaymentPage from "./pages/CheckoutPaymentPage";
+import CheckoutPaymentResultPage from "./pages/CheckoutPaymentResultPage";
+import CheckoutVerifyPaymentPage from "./pages/CheckoutVerifyPaymentPage";
 import ForbiddenPage from "./pages/ForbiddenPage";
 import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
 import { useAuthStore } from "./store/authStore";
-import CheckoutAddressPage from "./pages/CheckoutAddressPage";
-import CheckoutPaymentPage from "./pages/CheckoutPaymentPage";
 
 const App = () => {
   useFetchUserProfileQuery();
@@ -111,6 +113,8 @@ const App = () => {
             <Route path="/dashboard" element={<UserDashboardPage />} />
             <Route path="/checkout/address" element={<CheckoutAddressPage />} />
             <Route path="/checkout/payment" element={<CheckoutPaymentPage />} />
+            <Route path="/checkout/verify-payment" element={<CheckoutVerifyPaymentPage />} />
+            <Route path="/checkout/payment-result" element={<CheckoutPaymentResultPage />} />
           </Route>
         </Route>
       </Routes>
