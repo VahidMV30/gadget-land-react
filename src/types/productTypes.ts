@@ -34,7 +34,7 @@ export type ProductWithImagesResponse = {
   images: string[];
 };
 
-export type ProductsWithFiltersResponse = {
+export type ProductCardResponse = {
   name: string;
   slug: string;
   image: string;
@@ -46,7 +46,7 @@ export type ProductsWithFiltersResponse = {
 export type PaginatedProductsWithFiltersResponse = {
   totalCount: number;
   totalPages: number;
-  products: ProductsWithFiltersResponse[];
+  products: ProductCardResponse[];
 };
 
 export type ProductSortOrderType = "latest" | "oldest" | "cheapest" | "expensive";

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@import "swiper/css";
 
 @font-face {
   font-family: IRANYekanXFaNum;

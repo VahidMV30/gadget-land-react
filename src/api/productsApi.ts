@@ -54,3 +54,18 @@ export const fetchCartProductsByIdsApi = async (ids: number[]) => {
   const response = await axiosInstance.post(`/products/cart-products`, ids);
   return response.data;
 };
+
+export const fetchDiscountedProductsApi = async () => {
+  const response = await axiosInstance.get("/products/discounted-products");
+  return response.data;
+};
+
+export const fetchTopSellingProductsApi = async () => {
+  const response = await axiosInstance.get("/products/top-selling-products");
+  return response.data;
+};
+
+export const fetchLatestProductsApi = async () => {
+  const response = await axiosInstance.get("/products/latest-products");
+  return response.data;
+};
