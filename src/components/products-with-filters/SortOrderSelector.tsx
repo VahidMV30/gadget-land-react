@@ -23,8 +23,12 @@ const sortOrderItems: { title: string; sortOrder: ProductSortOrderType }[] = [
     title: "💰 گران ترین",
     sortOrder: "expensive",
   },
+  {
+    title: "🔥 پرفروش ترین",
+    sortOrder: "topSales",
+  },
 ];
-const validSortOrders: ProductSortOrderType[] = ["latest", "oldest", "cheapest", "expensive"];
+const validSortOrders: ProductSortOrderType[] = ["latest", "oldest", "cheapest", "expensive", "topSales"];
 
 export const SortOrderSelector = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,18 +40,22 @@ export const SortOrderSelector = () => {
   });
 
   useEffect(() => {
-    const sortOrder = searchParams.get("sortOrder");
-    if (sortOrder && validSortOrders.includes(sortOrder as ProductSortOrderType)) {
-      setSortOrder(sortOrder as ProductSortOrderType);
+    const sortOrder = searchParams.get("sort") as ProductSortOrderType;
+    if (sortOrder && validSortOrders.includes(sortOrder)) {
+      setSortOrder(sortOrder);
+      const matchedItem = sortOrderItems.find((item) => item.sortOrder === sortOrder);
+      if (matchedItem) setSelectedItem(matchedItem);
     } else {
       setSortOrder("latest");
+      const defaultItem = sortOrderItems.find((item) => item.sortOrder === "latest");
+      if (defaultItem) setSelectedItem(defaultItem);
     }
   }, [searchParams, setSortOrder]);
 
   const handleSelectSortOrder = (item: { title: string; sortOrder: ProductSortOrderType }) => {
     const params = new URLSearchParams(searchParams);
 
-    params.set("sortOrder", item.sortOrder);
+    params.set("sort", item.sortOrder);
 
     setSelectedItem({ title: item.title, sortOrder: item.sortOrder });
     setIsOpen(false);

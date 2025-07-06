@@ -30,7 +30,7 @@ export const CategoriesSwiper = () => {
       {data?.map((category) => (
         <SwiperSlide key={category.slug}>
           <Link
-            to={`/products?categorySlug=${category.slug}`}
+            to={`/products?category=${category.slug}`}
             className="group mb-4 flex items-center justify-center rounded-xl bg-gray-100 p-4 shadow-gray-300 hover:shadow-lg md:mb-6 dark:bg-gray-800 dark:shadow-gray-700"
           >
             <img

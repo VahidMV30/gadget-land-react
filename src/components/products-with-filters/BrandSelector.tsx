@@ -16,7 +16,7 @@ export const BrandSelector = () => {
   const { selectedBrandSlug, setSelectedBrandSlug } = useProductsWithFiltersStore();
 
   useEffect(() => {
-    const brandSlug = searchParams.get("brandSlug");
+    const brandSlug = searchParams.get("brand");
     setSelectedBrandSlug(brandSlug);
   }, [searchParams, setSelectedBrandSlug]);
 
@@ -24,10 +24,10 @@ export const BrandSelector = () => {
     const params = new URLSearchParams(searchParams);
 
     if (selectedBrandSlug === brandSlug) {
-      params.delete("brandSlug");
+      params.delete("brand");
       setSelectedBrandSlug(null);
     } else if (brandSlug) {
-      params.set("brandSlug", brandSlug);
+      params.set("brand", brandSlug);
       setSelectedBrandSlug(brandSlug);
     }
 

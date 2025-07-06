@@ -33,14 +33,14 @@ export const BrandsSwiper = () => {
       modules={[Autoplay]}
       autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
     >
-      {data?.map((category) => (
-        <SwiperSlide key={category.slug}>
+      {data?.map((brand) => (
+        <SwiperSlide key={brand.slug}>
           <Link
-            to={`/products?categorySlug=${category.slug}`}
+            to={`/products?brand=${brand.slug}`}
             className="group flex items-center justify-center rounded-xl bg-gray-100 shadow-gray-300 hover:shadow-lg md:mb-2 dark:bg-gray-800 dark:shadow-gray-700"
           >
             <img
-              src={`${IMAGE_URL}/brands/${category.image}`}
+              src={`${IMAGE_URL}/brands/${brand.image}`}
               className="w-28 transition duration-200 group-hover:scale-110"
             />
           </Link>

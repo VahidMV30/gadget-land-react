@@ -15,7 +15,7 @@ export const CategorySelector = () => {
   const { selectedCategorySlug, setSelectedCategorySlug } = useProductsWithFiltersStore();
 
   useEffect(() => {
-    const categorySlug = searchParams.get("categorySlug");
+    const categorySlug = searchParams.get("category");
     setSelectedCategorySlug(categorySlug);
   }, [searchParams, setSelectedCategorySlug]);
 
@@ -23,10 +23,10 @@ export const CategorySelector = () => {
     const params = new URLSearchParams(searchParams);
 
     if (selectedCategorySlug === categorySlug) {
-      params.delete("categorySlug");
+      params.delete("category");
       setSelectedCategorySlug(null);
     } else if (categorySlug) {
-      params.set("categorySlug", categorySlug);
+      params.set("category", categorySlug);
       setSelectedCategorySlug(categorySlug);
     }
 

@@ -49,7 +49,7 @@ export type PaginatedProductsWithFiltersResponse = {
   products: ProductCardResponse[];
 };
 
-export type ProductSortOrderType = "latest" | "oldest" | "cheapest" | "expensive";
+export type ProductSortOrderType = "latest" | "oldest" | "cheapest" | "expensive" | "topSales";
 
 export type ProductsWithFiltersRequest = {
   categorySlug: string | null;

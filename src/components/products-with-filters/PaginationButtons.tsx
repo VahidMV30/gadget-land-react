@@ -4,7 +4,13 @@ import { useSearchParams } from "react-router-dom";
 import classnames from "classnames";
 import { useProductsWithFiltersStore } from "../../store/productsWithFiltersStore";
 
-export const PaginationButtons = ({ totalPages }: { totalPages: number }) => {
+export const PaginationButtons = ({
+  totalPages,
+  disableNextPage,
+}: {
+  totalPages: number;
+  disableNextPage: boolean;
+}) => {
   const { pageIndex, setPageIndex } = useProductsWithFiltersStore();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -48,7 +54,7 @@ export const PaginationButtons = ({ totalPages }: { totalPages: number }) => {
           "dark:hover:bg-sky-700 disabled:dark:border-gray-700": true,
         })}
         onClick={() => handlePageIndexChange("increment")}
-        disabled={pageIndex === totalPages}
+        disabled={pageIndex === totalPages || disableNextPage}
       >
         <FaArrowLeft size={17} />
       </button>

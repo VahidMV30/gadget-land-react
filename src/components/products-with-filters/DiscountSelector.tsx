@@ -11,16 +11,16 @@ export const DiscountSelector = () => {
   const { isOnlyDiscounted, setIsOnlyDiscounted } = useProductsWithFiltersStore();
 
   useEffect(() => {
-    const onlyDiscounted = searchParams.get("onlyDiscounted");
+    const onlyDiscounted = searchParams.get("discounted");
     setIsOnlyDiscounted(onlyDiscounted === "true");
   }, [searchParams, setIsOnlyDiscounted]);
 
   const handleOnlyDiscountedChange = (checked: boolean) => {
     const params = new URLSearchParams(searchParams);
     if (checked) {
-      params.set("onlyDiscounted", "true");
+      params.set("discounted", "true");
     } else {
-      params.delete("onlyDiscounted");
+      params.delete("discounted");
     }
     setSearchParams(params);
     setIsOnlyDiscounted(checked);

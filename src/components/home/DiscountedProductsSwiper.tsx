@@ -37,7 +37,7 @@ export const DiscountedProductsSwiper = () => {
         </h4>
 
         <Link
-          to={`/products?onlyDiscounted=true`}
+          to={`/products?discounted=true`}
           className={classnames({
             "flex items-center justify-center gap-2 rounded bg-gradient-to-r from-violet-600": true,
             "to-pink-600 p-2 text-white transition duration-200 hover:from-pink-600": true,

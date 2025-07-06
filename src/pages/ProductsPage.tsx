@@ -58,12 +58,18 @@ const ProductsPage = () => {
             {!isLoading && data ? (
               <>
                 <div className="grid grid-cols-12 gap-4">
-                  {data?.products.map((product) => <ProductCard key={product.slug} product={product} />)}
+                  {data.products.length > 0 ? (
+                    data.products.map((product) => <ProductCard key={product.slug} product={product} />)
+                  ) : (
+                    <div className="col-span-12 text-center text-yellow-500 dark:text-yellow-300">
+                      محصولی یافت نشد! 🫤
+                    </div>
+                  )}
                 </div>
 
                 <Divider />
 
-                <PaginationButtons totalPages={data.totalPages} />
+                <PaginationButtons totalPages={data.totalPages} disableNextPage={data.products.length === 0} />
               </>
             ) : (
               <div className="flex flex-col items-center justify-center gap-2">

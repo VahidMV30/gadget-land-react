@@ -37,7 +37,7 @@ export const LatestProductsSwiper = () => {
         </h4>
 
         <Link
-          to={`/products?onlyDiscounted=true`}
+          to={`/products?sort=latest`}
           className={classnames({
             "flex items-center justify-center gap-2 rounded bg-gradient-to-r from-gray-600": true,
             "to-red-600 p-2 text-white transition duration-200 hover:from-red-600": true,
