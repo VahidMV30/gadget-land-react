@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import { FaPallet } from "react-icons/fa";
-import { FaComments, FaTags } from "react-icons/fa6";
+import { FaCartShopping, FaComments, FaTags, FaUsers } from "react-icons/fa6";
 import { LuFactory } from "react-icons/lu";
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
@@ -58,6 +58,12 @@ export const AdminSidebar = () => {
           </li>
           <li>
             <AdminSidebarMenuItem href="/admin/reviews" icon={FaComments} title="دیدگاه ها" />
+          </li>
+          <li>
+            <AdminSidebarMenuItem href="/admin/users" icon={FaUsers} title="کاربران" />
+          </li>
+          <li>
+            <AdminSidebarMenuItem href="/admin/orders" icon={FaCartShopping} title="سفارشات" />
           </li>
           <li>
             <SidebarLogoutButton />

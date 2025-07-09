@@ -9,7 +9,6 @@ const useCreatePaymentMutation = () => {
   const createPayment = useMutation<string, AxiosError<{ errors: { description: string }[] }>, CartItem[]>({
     mutationFn: (data) => createPaymentApi(data),
     onSuccess: (data) => {
-      console.log(data);
       window.location.replace(data);
     },
     onError: (error) => {

@@ -16,12 +16,16 @@ import UpdateBrandPage from "./pages/admin/brands/UpdateBrandPage";
 import CategoriesPage from "./pages/admin/categories/CategoriesPage";
 import CreateCategoryPage from "./pages/admin/categories/CreateCategoryPage";
 import UpdateCategoryPage from "./pages/admin/categories/UpdateCategoryPage";
+import OrderDetailsPage from "./pages/admin/orders/OrderDetailsPage";
+import OrdersPage from "./pages/admin/orders/OrdersPage";
 import AdminProductsPage from "./pages/admin/products/AdminProductsPage";
 import CreateProductPage from "./pages/admin/products/CreateProductPage";
 import ModifyProductImagesPage from "./pages/admin/products/ModifyProductImagesPage";
 import UpdateProductPage from "./pages/admin/products/UpdateProductPage";
 import ReviewDetailsPage from "./pages/admin/reviews/ReviewDetailsPage";
 import ReviewsPage from "./pages/admin/reviews/ReviewsPage";
+import UserDetailsWithOrdersPage from "./pages/admin/users/UserDetailsWithOrdersPage";
+import UsersPage from "./pages/admin/users/UsersPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import CartPage from "./pages/CartPage";
@@ -105,6 +109,10 @@ const App = () => {
             <Route path="/admin/products/:id/modify-images" element={<ModifyProductImagesPage />} />
             <Route path="/admin/reviews" element={<ReviewsPage />} />
             <Route path="/admin/reviews/:id" element={<ReviewDetailsPage />} />
+            <Route path="/admin/users" element={<UsersPage />} />
+            <Route path="/admin/users/:id" element={<UserDetailsWithOrdersPage />} />
+            <Route path="/admin/orders" element={<OrdersPage />} />
+            <Route path="/admin/orders/:id" element={<OrderDetailsPage />} />
           </Route>
         </Route>
 
