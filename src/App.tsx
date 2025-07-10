@@ -7,6 +7,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { RootHeader } from "./components/RootHeader";
 import { RootLayout } from "./components/RootLayout";
 import { Spinner } from "./components/Spinner";
+import UserLayout from "./components/user/UserLayout";
 import { ADMIN_ROLE, USER_ROLE } from "./constants";
 import useFetchUserProfileQuery from "./hooks/reactQuery/auth/queries/useFetchUserProfileQuery";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -117,8 +118,8 @@ const App = () => {
         </Route>
 
         <Route element={<ProtectedRoute allowedRoles={USER_ROLE} />}>
-          <Route element={<RootLayout />}>
-            <Route path="/dashboard" element={<UserDashboardPage />} />
+          <Route element={<UserLayout />}>
+            <Route path="/user/dashboard" element={<UserDashboardPage />} />
             <Route path="/checkout/address" element={<CheckoutAddressPage />} />
             <Route path="/checkout/payment" element={<CheckoutPaymentPage />} />
             <Route path="/checkout/verify-payment" element={<CheckoutVerifyPaymentPage />} />

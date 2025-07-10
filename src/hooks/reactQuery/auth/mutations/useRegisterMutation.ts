@@ -17,7 +17,7 @@ const useRegisterMutation = () => {
       setUser(data);
       setIsAuthenticated(true);
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/user/dashboard");
       }, 0);
     },
     onError: (error) => {

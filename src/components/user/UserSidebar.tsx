@@ -1,9 +1,7 @@
 import classnames from "classnames";
-import { FaPallet } from "react-icons/fa";
-import { FaCartShopping, FaComments, FaTags, FaUsers } from "react-icons/fa6";
-import { LuFactory } from "react-icons/lu";
+import { FaCartShopping, FaUserGear } from "react-icons/fa6";
+import { LuUser } from "react-icons/lu";
 import { MdSpaceDashboard } from "react-icons/md";
-import { RiAdminLine } from "react-icons/ri";
 
 import { useAuthStore } from "../../store/authStore";
 import { useGlobalStore } from "../../store/globalStore";
@@ -11,29 +9,29 @@ import { Divider } from "../Divider";
 import { SidebarLogoutButton } from "../SidebarLogoutButton";
 import { SidebarMenuItem } from "../SidebarMenuItem";
 
-export const AdminSidebar = () => {
-  const { isAdminSidebarOpen, setIsAdminSidebarOpen } = useGlobalStore();
+export const UserSidebar = () => {
+  const { isUserSidebarOpen, setIsUserSidebarOpen } = useGlobalStore();
   const { user } = useAuthStore();
 
   return (
     <>
       <div
         className={classnames("fixed inset-0 bg-gray-500/50 lg:hidden", {
-          hidden: !isAdminSidebarOpen,
+          hidden: !isUserSidebarOpen,
         })}
-        onClick={() => setIsAdminSidebarOpen(!isAdminSidebarOpen)}
+        onClick={() => setIsUserSidebarOpen(!isUserSidebarOpen)}
       />
       <div
         className={classnames({
           "fixed inset-0 -right-72 col-span-0 w-72 rounded-tl-xl rounded-bl-xl bg-white duration-200": true,
           "border-gray-300 lg:static lg:col-span-3 lg:w-full lg:rounded lg:border dark:border-gray-700": true,
           "z-50 p-4 transition-[right] lg:h-fit dark:bg-gray-950": true,
-          "right-0": isAdminSidebarOpen,
+          "right-0": isUserSidebarOpen,
         })}
       >
         <div className="flex items-center gap-2">
           <div className="rounded-full border-2 border-gray-300 p-2 dark:border-gray-700">
-            <RiAdminLine size={25} />
+            <LuUser size={25} />
           </div>
           <div className="flex flex-col gap-0.5 text-sm">
             <p>{user?.fullName}</p>
@@ -45,25 +43,13 @@ export const AdminSidebar = () => {
 
         <ul className="flex flex-col gap-2">
           <li>
-            <SidebarMenuItem href="/admin/dashboard" icon={MdSpaceDashboard} title="داشبورد" />
+            <SidebarMenuItem href="/user/dashboard" icon={MdSpaceDashboard} title="داشبورد" />
           </li>
           <li>
-            <SidebarMenuItem href="/admin/categories" icon={FaTags} title="دسته بندی ها" />
+            <SidebarMenuItem href="/user/info" icon={FaUserGear} title="اطلاعات کاربری" />
           </li>
           <li>
-            <SidebarMenuItem href="/admin/brands" icon={LuFactory} title="برند ها" />
-          </li>
-          <li>
-            <SidebarMenuItem href="/admin/products" icon={FaPallet} title="محصولات" />
-          </li>
-          <li>
-            <SidebarMenuItem href="/admin/reviews" icon={FaComments} title="دیدگاه ها" />
-          </li>
-          <li>
-            <SidebarMenuItem href="/admin/users" icon={FaUsers} title="کاربران" />
-          </li>
-          <li>
-            <SidebarMenuItem href="/admin/orders" icon={FaCartShopping} title="سفارشات" />
+            <SidebarMenuItem href="/user/orders" icon={FaCartShopping} title="سفارشات" />
           </li>
           <li>
             <SidebarLogoutButton />

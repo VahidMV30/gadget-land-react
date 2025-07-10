@@ -20,7 +20,7 @@ export const AuthButton = () => {
     <>
       {isAuthenticated ? (
         <Link
-          to={user?.role === ADMIN_ROLE ? "/admin/dashboard" : "/dashboard"}
+          to={user?.role === ADMIN_ROLE ? "/admin/dashboard" : "/user/dashboard"}
           className="cursor-pointer rounded border border-gray-300 p-1.5 dark:border-gray-700"
         >
           <LuUser size={17} />

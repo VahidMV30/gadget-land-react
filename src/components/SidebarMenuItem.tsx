@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import { IconType } from "react-icons";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useGlobalStore } from "../../store/globalStore";
+import { useGlobalStore } from "../store/globalStore";
 
 interface Props {
   href: string;
@@ -9,7 +9,7 @@ interface Props {
   title: string;
 }
 
-export const AdminSidebarMenuItem = ({ href, icon, title }: Props) => {
+export const SidebarMenuItem = ({ href, icon, title }: Props) => {
   const { setIsAdminSidebarOpen } = useGlobalStore();
 
   const location = useLocation();

@@ -19,7 +19,11 @@ const useLoginMutation = () => {
       setIsAuthenticated(true);
       setTimeout(() => {
         const callbackUrl = localStorage.getItem("callbackUrl");
-        const navigateUrl = callbackUrl ? callbackUrl : data.role === ADMIN_ROLE ? "/admin/dashboard" : "/dashboard";
+        const navigateUrl = callbackUrl
+          ? callbackUrl
+          : data.role === ADMIN_ROLE
+            ? "/admin/dashboard"
+            : "/user/dashboard";
         navigate(navigateUrl);
       }, 0);
     },
