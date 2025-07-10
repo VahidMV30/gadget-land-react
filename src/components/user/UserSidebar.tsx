@@ -46,7 +46,7 @@ export const UserSidebar = () => {
             <SidebarMenuItem href="/user/dashboard" icon={MdSpaceDashboard} title="داشبورد" />
           </li>
           <li>
-            <SidebarMenuItem href="/user/info" icon={FaUserGear} title="اطلاعات کاربری" />
+            <SidebarMenuItem href="/user/details" icon={FaUserGear} title="اطلاعات کاربری" />
           </li>
           <li>
             <SidebarMenuItem href="/user/orders" icon={FaCartShopping} title="سفارشات" />

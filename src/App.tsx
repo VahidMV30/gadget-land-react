@@ -39,6 +39,7 @@ import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
+import UserDetailsPage from "./pages/user/UserDetailsPage";
 import { useAuthStore } from "./store/authStore";
 
 const App = () => {
@@ -119,11 +120,12 @@ const App = () => {
 
         <Route element={<ProtectedRoute allowedRoles={USER_ROLE} />}>
           <Route element={<UserLayout />}>
-            <Route path="/user/dashboard" element={<UserDashboardPage />} />
             <Route path="/checkout/address" element={<CheckoutAddressPage />} />
             <Route path="/checkout/payment" element={<CheckoutPaymentPage />} />
             <Route path="/checkout/verify-payment" element={<CheckoutVerifyPaymentPage />} />
             <Route path="/checkout/payment-result" element={<CheckoutPaymentResultPage />} />
+            <Route path="/user/dashboard" element={<UserDashboardPage />} />
+            <Route path="/user/details" element={<UserDetailsPage />} />
           </Route>
         </Route>
       </Routes>

@@ -31,7 +31,9 @@ export type UsersForAdminTableResponse = {
 
 export type UserDetailsResponse = {
   id: number;
+  provinceId: number;
   province: string;
+  cityId: number;
   city: string;
   fullName: string;
   email: string;

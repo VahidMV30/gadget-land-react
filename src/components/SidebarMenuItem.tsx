@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const SidebarMenuItem = ({ href, icon, title }: Props) => {
-  const { setIsAdminSidebarOpen } = useGlobalStore();
+  const { setIsAdminSidebarOpen, setIsUserSidebarOpen } = useGlobalStore();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ export const SidebarMenuItem = ({ href, icon, title }: Props) => {
 
   const handleMenuItemClick = (href: string) => {
     setIsAdminSidebarOpen(false);
+    setIsUserSidebarOpen(false);
     navigate(href);
   };
 

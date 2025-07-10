@@ -11,6 +11,8 @@ interface AuthState {
   setIsAuthenticated: (value: boolean) => void;
   setIsAuthCheckComplete: (value: boolean) => void;
   setIsFetchingUserProfile: (value: boolean) => void;
+
+  setUserFullName: (fullName: string) => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -22,4 +24,6 @@ export const useAuthStore = create<AuthState>((set) => ({
   setIsAuthenticated: (value) => set({ isAuthenticated: value }),
   setIsAuthCheckComplete: (value) => set({ isAuthCheckComplete: value }),
   setIsFetchingUserProfile: (value) => set({ isFetchingUserProfile: value }),
+
+  setUserFullName: (fullName) => set((state) => ({ user: state.user ? { ...state.user, fullName: fullName } : null })),
 }));
