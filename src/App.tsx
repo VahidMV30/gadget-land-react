@@ -120,12 +120,17 @@ const App = () => {
 
         <Route element={<ProtectedRoute allowedRoles={USER_ROLE} />}>
           <Route element={<UserLayout />}>
+            <Route path="/user/dashboard" element={<UserDashboardPage />} />
+            <Route path="/user/details" element={<UserDetailsPage />} />
+          </Route>
+        </Route>
+
+        <Route element={<ProtectedRoute allowedRoles={USER_ROLE} />}>
+          <Route element={<RootLayout />}>
             <Route path="/checkout/address" element={<CheckoutAddressPage />} />
             <Route path="/checkout/payment" element={<CheckoutPaymentPage />} />
             <Route path="/checkout/verify-payment" element={<CheckoutVerifyPaymentPage />} />
             <Route path="/checkout/payment-result" element={<CheckoutPaymentResultPage />} />
-            <Route path="/user/dashboard" element={<UserDashboardPage />} />
-            <Route path="/user/details" element={<UserDetailsPage />} />
           </Route>
         </Route>
       </Routes>

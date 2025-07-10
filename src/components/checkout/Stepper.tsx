@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 interface Props {
   currentStep: number;
-  isSuccess?: boolean; // ← اضافه کردن prop جدید
+  isSuccess?: boolean;
 }
 
 export const Stepper = ({ currentStep, isSuccess }: Props) => {
@@ -14,7 +14,7 @@ export const Stepper = ({ currentStep, isSuccess }: Props) => {
   ];
 
   return (
-    <div className="relative top-6 mx-auto my-10 flex max-w-xl items-center justify-between">
+    <div className="relative top-6 mx-auto flex max-w-xl items-center justify-between">
       <div className="absolute top-5 right-0 left-0 z-0 h-0.5 bg-gray-300 dark:bg-gray-700" />
 
       {steps.map((step, index) => {
