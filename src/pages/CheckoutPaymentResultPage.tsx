@@ -48,7 +48,7 @@ const CheckoutPaymentResultPage = () => {
 
       <div className="mt-4 flex items-center justify-center">
         <Link
-          to={`/dashboard/orders/${state.orderId}`}
+          to={`/user/orders/${state.orderId}`}
           className={classnames({
             "col-span-2 flex items-center justify-center gap-1.5 rounded bg-gradient-to-r from-green-600": true,
             "cursor-pointer to-blue-600 p-2 text-white transition hover:from-blue-600 hover:to-green-600": true,

@@ -49,7 +49,7 @@ export const UserSidebar = () => {
             <SidebarMenuItem href="/user/details" icon={FaUserGear} title="اطلاعات کاربری" />
           </li>
           <li>
-            <SidebarMenuItem href="/user/orders" icon={FaCartShopping} title="سفارشات" />
+            <SidebarMenuItem href="/user/orders" icon={FaCartShopping} title="سفارشات من" />
           </li>
           <li>
             <SidebarLogoutButton />

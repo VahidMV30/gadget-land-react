@@ -36,3 +36,20 @@ export type ChangeOrderStatusRequest = {
   orderId: number;
   orderStatus: number;
 };
+
+export type OrderForUserPanelResponse = {
+  id: number;
+  orderStatus: string;
+  discountAmount: string;
+  shippingCost: string;
+  subtotalAmount: string;
+  totalPayableAmount: string;
+  refId: number;
+  orderDate: string;
+};
+
+export type OrderWithItemsForUserPanelResponse = {
+  user: UserDetailsResponse;
+  order: OrderForUserPanelResponse;
+  orderItems: OrderItemResponse[];
+};

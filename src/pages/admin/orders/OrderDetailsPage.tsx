@@ -8,8 +8,10 @@ import { Spinner } from "../../../components/Spinner";
 import useFetchOrderWithItemsAndUserByIdQuery from "../../../hooks/reactQuery/orders/queries/useFetchOrderWithItemsAndUserByIdQuery";
 import { OrderStatus } from "../../../types/orderTypes";
 import { OrderStatusSelector } from "../../../components/admin/order/OrderStatusSelector";
+import useMetadata from "../../../hooks/useMetadata";
 
 const OrderDetailsPage = () => {
+  useMetadata("جزئیات سفارش");
   const { id } = useParams();
   const parsedId = Number(id);
   const orderId = id && parsedId && !isNaN(parsedId) ? parsedId : 0;
@@ -54,7 +56,7 @@ const OrderDetailsPage = () => {
       </div>
 
       <div className="rounded border border-gray-300 dark:border-gray-700">
-        <div className="flex items-center justify-between rounded-tl rounded-tr bg-gray-100 p-4 dark:bg-gray-800">
+        <div className="flex items-center justify-between rounded-tl rounded-tr bg-gray-100 px-4 py-2.5 dark:bg-gray-800">
           <div className="flex items-center gap-1.5">
             <FaCartShopping size={17} />
             <span className="mt-0.5">اطلاعات سفارش</span>

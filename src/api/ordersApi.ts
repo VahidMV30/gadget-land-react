@@ -15,3 +15,13 @@ export const changeOrderStatusByIdApi = async (data: ChangeOrderStatusRequest) =
   const response = await axiosInstance.put("/orders", data);
   return response.data;
 };
+
+export const fetchOrdersByUserIdApi = async () => {
+  const response = await axiosInstance.get("/orders/orders-by-userId");
+  return response.data;
+};
+
+export const fetchOrderWithItemsByIdApi = async (orderId: number) => {
+  const response = await axiosInstance.get(`/orders/order-by-orderId/${orderId}`);
+  return response.data;
+};

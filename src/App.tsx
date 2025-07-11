@@ -38,6 +38,8 @@ import ForbiddenPage from "./pages/ForbiddenPage";
 import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
+import UserOrderDetailsPage from "./pages/user/orders/UserOrderDetailsPage";
+import UserOrdersPage from "./pages/user/orders/UserOrdersPage";
 import UserDashboardPage from "./pages/user/UserDashboardPage";
 import UserDetailsPage from "./pages/user/UserDetailsPage";
 import { useAuthStore } from "./store/authStore";
@@ -122,6 +124,8 @@ const App = () => {
           <Route element={<UserLayout />}>
             <Route path="/user/dashboard" element={<UserDashboardPage />} />
             <Route path="/user/details" element={<UserDetailsPage />} />
+            <Route path="/user/orders" element={<UserOrdersPage />} />
+            <Route path="/user/orders/:id" element={<UserOrderDetailsPage />} />
           </Route>
         </Route>
 
