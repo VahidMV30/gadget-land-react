@@ -10,7 +10,7 @@ export const AdminHeader = () => {
   const { setIsAdminSidebarOpen } = useGlobalStore();
 
   return (
-    <header className="fixed inset-0 h-16 px-4 backdrop-blur-md xl:px-0">
+    <header className="fixed inset-0 z-50 h-16 px-4 backdrop-blur-md xl:px-0">
       <div className="container mx-auto flex h-full max-w-[1280px] items-center justify-between border-b border-gray-300 dark:border-gray-700">
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="گجت لند" className="h-9 w-9" />

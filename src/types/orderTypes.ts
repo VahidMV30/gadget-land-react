@@ -53,3 +53,8 @@ export type OrderWithItemsForUserPanelResponse = {
   order: OrderForUserPanelResponse;
   orderItems: OrderItemResponse[];
 };
+
+export type OrderWithItemsResponse = {
+  order: OrderForUserPanelResponse;
+  orderItems: OrderItemResponse[];
+};

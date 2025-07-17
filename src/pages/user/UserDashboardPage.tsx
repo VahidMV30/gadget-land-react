@@ -1,11 +1,20 @@
-import useLogoutMutation from "../../hooks/reactQuery/auth/mutations/useLogoutMutation";
+import { Divider } from "../../components/Divider";
+import { UserLastOrder } from "../../components/user/dashboard/UserLastOrder";
+import { UserWidgets } from "../../components/user/dashboard/UserWidgets";
 import useMetadata from "../../hooks/useMetadata";
 
 const UserDashboardPage = () => {
   useMetadata("داشبورد");
-  const { mutate } = useLogoutMutation();
 
-  return <div onClick={() => mutate()}>User Dashboard Page!</div>;
+  return (
+    <>
+      <UserWidgets />
+
+      <Divider />
+
+      <UserLastOrder />
+    </>
+  );
 };
 
 export default UserDashboardPage;

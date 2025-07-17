@@ -25,3 +25,8 @@ export const fetchOrderWithItemsByIdApi = async (orderId: number) => {
   const response = await axiosInstance.get(`/orders/order-by-orderId/${orderId}`);
   return response.data;
 };
+
+export const fetchOrderWithItemsByUserIdApi = async () => {
+  const response = await axiosInstance.get("/orders/last-order-with-items-userId");
+  return response.data;
+};
